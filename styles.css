@@ -5,10 +5,13 @@
   margin: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
+  list-style: none;
 }
 
 :root {
   --bg-color: #e3edf7;
+  --pr-color: #eb0000;
+  --gradient-red-bg: linear-gradient(180deg, rgba(235, 0, 0, 1) 0%, rgba(235, 0, 0, 1) 51%, rgba(235, 0, 0, 1) 100%);
   --gradient-white-bg: linear-gradient(0deg, #fff 0%, #edf4fa 51%, #e5eef7 100%);
   --gradient-color-bg: linear-gradient(180deg, rgba(247, 1, 120, 1) 0%, rgba(160, 8, 156, 1) 51%, rgba(99, 13, 178, 1) 100%);
   --main-color: #e6006d;
@@ -48,7 +51,7 @@ header .logo {
 }
 
 span {
-  background: var(--gradient-color-bg);
+  background: var(--pr-color);
   background-clip: text;
   color: transparent;
 }
@@ -68,7 +71,7 @@ ul.navlist {
 
 .navlist li a:hover,
 .navlist li a.active {
-  background: var(--gradient-color-bg);
+  background: var(--pr-color);
   background-clip: text;
   color: transparent;
 }
@@ -76,12 +79,12 @@ ul.navlist {
 .right-header {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: end;
   grid-gap: .8rem;
 }
 
 .btn{
-  background: var(--gradient-color-bg);
+  background: var(--pr-color);
   color: #fff;
   padding:8px 10px;
   border-radius:5px;
@@ -147,7 +150,7 @@ section{
 
 .hero-info{
 
-  margin-top:3rem;
+  margin-top:1rem;
 }
 
 .hero-info h3{
@@ -171,8 +174,8 @@ section{
   font-weight: 600;
   margin-bottom: 1rem;
   color: transparent;
-  -webkit-text-stroke: 0.1vw #770753;
-  background: var(--gradient-color-bg);
+  -webkit-text-stroke: 0.1vw #eb0000;
+  background: var(--gradient-red-bg);
   background-repeat: no-repeat;
   -webkit-background-clip: text;
   background-clip: text;
@@ -209,7 +212,7 @@ section{
   margin-bottom:6rem;
 }
 
-.btn-b ox .btn {
+.btn-box .btn {
   padding: 10px;
   display: flex;
   align-items: center;
@@ -234,7 +237,7 @@ section{
   display:flex;
   justify-content: space-between;
   width: 220px;
-  height: 45px;
+  margin-top:  -50px;
 
 }
 
@@ -243,7 +246,7 @@ section{
   width: 42px;
   height: 42px;
   font-size: 1.5rem;
-  color: var(--main-color);
+  color: var(--pr-color);
   background: #fff;
   display: inline-flex;
   justify-content: center;
@@ -257,7 +260,7 @@ section{
 
 .social-media a:hover{
 
-  background: var(--gradient-color-bg);
+  background: var(--gradient-red-bg);
   color:#fff;
 }
 
@@ -274,7 +277,7 @@ section{
     position: absolute;
     width: 50px;
     height: 50px;
-    background: var(--gradient-color-bg);
+    background: var(--gradient-red-bg);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -286,15 +289,40 @@ section{
 .img-hero{
 
   position: relative;
+  margin: 0 auto;
   animation: floatImage 4s ease-in-out infinite;
   animation-delay: 3s;
+
+}
+
+.img-hero::after, .img-hero::before{
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  height: 83%;
+  width: 83%;
+  background:conic-gradient(from 0deg, transparent 70%,  var( --pr-color));
+  top: 53%;
+  left: 44%;
+  translate: -50% -50%;
+  z-index: -1;
+  padding: 6px;
+  animation: 3s spin linear infinite;
+}
+
+.img-hero::before{
+  filter: blur(1.5rem);
+  opacity: 0.5;
+
 }
 
 .img-hero img{
   position: relative;
-  width: 400px;
+  width: 450px;
   height: auto;
   z-index:10;
+  top:30px;
+  right: 20px;
   
  
 }
@@ -317,8 +345,6 @@ section{
   position: relative;
   width: 442px;
   height: 442px;
-  background: red;
-  border: 6px solid #eaeef0;
   border-radius:50%;
   z-index: 1;
   overflow: hidden;
@@ -328,25 +354,25 @@ section{
 
 
 
-.rotate-text span::before{
+/*.rotate-text span::before{
   content: "";
   position:absolute;
   inset: 20px;
-  background: #00aaff;
+  background: #eb0000;
   border-radius:50%;
   z-index:1;
 
 }
 
-.rotate-text span i{
+/*.rotate-text span i{
 
   position: absolute;
   inset:0;
-  background: var(--gradient-color-bg);
-  filter:blur(5px);
+  background: var(--pr-color);
+  filter:blur(25px);
   animation: animate 2s linear infinite;
 
-}
+}*/
 
 .rotate-text .text{
 
@@ -411,18 +437,26 @@ section{
 
 
 .about-content h2{
-  color:var(--main-color);
+  color:var( --pr-color);
+  font-size: 2.1rem;
+  text-align: center;
 }
 
 .about-content h3{
-  font-size: 2.1rem;
+  font-size: 1.7rem;
   line-height: 3rem;
   margin: .5rem 0;
+  text-align: center;
 }
 
 .about-content p{
   color:var(--font-color);
 
+
+}
+
+.about_p{
+  text-align: center;
 }
 
 .text-box p{
@@ -431,15 +465,19 @@ section{
 }
 
 .about-btn{
-  margin: .8rem 0;
+  margin: 2.8rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
 }
 
 .about-btn button, .cvContent a{
   background: var(--gradient-white-bg2);
-  padding: 10px 20px;
+  padding: 13px 25px;
   border-radius: 5px;
   border: none;
-  font-size:1rem;
+  font-size:1.2rem;
   font-weight: 500;
   color: #000;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0,
@@ -451,7 +489,7 @@ section{
 }
 
 .about-btn  button.active{
-  background: var(--gradient-color-bg);
+  background: var(--pr-color);
   color:#ffff;
 }
 
@@ -1113,6 +1151,15 @@ footer{
   }
 }
 
+@keyframes spin{
+  from{
+    --angle:0deg;
+  }
+  to{
+    --angle:360deg;
+  }
+}
+
 
 /*------------------------ Brank-points -------------------*/
 
@@ -1169,7 +1216,7 @@ footer{
   }
 
   .menu-icon .bar, .menu-icon::after, .menu-icon::before{
-    display: none;
+    display: block;
   }
 
   ul.navlist{

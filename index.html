@@ -46,7 +46,7 @@
           <h2>Full Stack Developer</h2>
         </div> 
 
-        <p>Votre balise est correcte et fonctionnera comme prévu  pour inclure le fichier CSS de Boxicons dans votre projet. Si vous utilisez une structure propre comme indiqué ci-dessus, <br>tout devrait bien fonctionner !</p>
+        <p>Passionate developer, I design high-performance and intuitive applications that combine design, fluidity, and efficiency. My goal: turning your ideas into unique digital experiences</p>
         
         <div class="btn-box">
           <a href="djadel.vfc@mail.com" class="btn">Hire Me Now !<i class="bx bx-right-arrow-alt"></i> </a>
@@ -55,12 +55,12 @@
 
         <div class="social-media">
           <div class="bg-icon">
-            <a href="#"><i class="bx bxl-instagram"></i></a>
+            <a href="https://www.instagram.com/djadel_99/" target="_blank"><i class="bx bxl-instagram"></i></a>
             <span></span>
           </div>
 
           <div class="bg-icon">
-            <a href="#"><i class="bx bxl-github"></i></a>
+            <a href="https://github.com/Zino-99" target="_blank"><i class="bx bxl-github"></i></a>
             <span></span>
           </div>
 
@@ -70,40 +70,40 @@
           </div>
 
           <div class="bg-icon">
-            <a href="#"><i class="bx bxl-facebook"></i></a>
+            <a href="https://www.facebook.com/yacine.djadel.5?locale=fr_FR" target="_blank"><i class="bx bxl-facebook"></i></a>
             <span></span>
           </div>
         </div>
       </div>
       <div class="img-hero">
-        <img src="./img/robothello.png" alt="Photo of Yacine">
-        <div class="rotate-text">
+        <img src="./img/My_picture.png" alt="Photo of Yacine">
+        <!--<div class="rotate-text">
            <div class="text">
             <p>I'm Full Stack Developer ecole multimedia de paris</p>
           </div>
           <span><i></i></span>
-        </div>
+        </div>-->
       </div>
 
 </section>
 
-<section class="about" id="about">
-      <div class="about-img">
+<!--<section class="about" id="about">
+     <!--- <div class="about-img">
         <img src="./img/robothello.png" alt="" class="aboutHero">
         <div class="showcase-ring">
           <img src="shapes/rings.png" class="ring">
           <img src="shapes/circle.png" class="circle">
         </div>
-      </div>
+      </div> -->
 
-      <div class="about-content">
+      <!--<div class="about-content">
         <h2 class="heading">About Me</h2>
-        <h3>3 Year's Experience on design </h3>
-        <p>Votre balise est correcte et fonctionnera comme prévu pour inclure le fichier CSS de Boxicons dans votre projet. Si vous utilisez une structure propre comme indiqué ci-dessus, tout devrait bien fonctionner !</p>
+        <h3>Student at École Multimédia looking for an apprenticeship</h3>
+        <p class="about_p">Learn, design, and innovate: three pillars that guide my journey. As a student at École Multimédia, I am looking for an apprenticeship to develop my skills and contribute to meaningful projects alongside inspiring professionals</p>
         <div class="about-btn">
-          <button class="active">Main Skills</button>
-          <button>Awards</button>
-          <button>Eduction</button>
+          <button class="active" onclick="changeContent('skills')">Main Skills</button>
+          <button onclick="changeContent('awards')">Awards</button>
+          <button onclick="changeContent('education')">Education</button>
         </div>
         <div class="content-btn">
           <div class="content">
@@ -139,6 +139,7 @@
               <span>Delight the user and make it work </span>
             </div>
           </div>
+        </div>
 
           <div class="content">
             <div class="text-box">
@@ -163,6 +164,66 @@
         </div>
         </div>
         </div>
+</section>-->
+
+
+
+<section class="about" id="about"> 
+  <div class="about-content">
+    <h2 class="heading">About Me</h2>
+    <h3>Student at École Multimédia looking for an apprenticeship</h3>
+    <p class="about_p">Learn, design, and innovate: three pillars that guide my journey. As a student at École Multimédia, I am looking for an apprenticeship to develop my skills and contribute to meaningful projects alongside inspiring professionals</p>
+    <div class="about-btn">
+      <!-- On associe chaque bouton avec la section via l'attribut data-section -->
+      <button class="active" data-section="main-skills" onclick="changeContent('main-skills')">Main Skills</button>
+      <button data-section="awards" onclick="changeContent('awards')">Awards</button>
+      <button data-section="education" onclick="changeContent('education')">Education</button>
+    </div>
+    <div class="content-btn">
+      <!-- Main Skills content -->
+      <div class="content main-skills">
+        <div class="text-box">
+          <p>Figma User Experience Design - UI / UX</p>
+          <span>Passionate about designing intuitive interfaces, I create smooth and memorable user experiences.</span>
+        </div>
+        <div class="text-box">
+          <p>Web Development - HTML, CSS, JavaScript</p>
+          <span>Creating interactive websites</span>
+        </div>
+        <div class="text-box">
+          <p>Graphic Design - Adobe Suite</p>
+          <span>Designing beautiful visuals</span>
+        </div>
+      </div>
+
+      <!-- Awards content, hidden initially -->
+      <div class="content awards" style="display: none;">
+        <div class="text-box">
+          <p>Best UX/UI Designer Award 2024</p>
+          <span>Awarded for excellence in design</span>
+        </div>
+        <div class="text-box">
+          <p>Web Design Excellence 2023</p>
+          <span>Recognized for outstanding web design skills</span>
+        </div>
+      </div>
+
+      <!-- Education content, hidden initially -->
+      <div class="content education" style="display: none;">
+        <div class="text-box">
+          <p>Bachelor in Multimedia</p>
+          <span>École Multimédia, 2024</span>
+        </div>
+        <div class="text-box">
+          <p>Online Courses: UX/UI Design</p>
+          <span>Coursera, 2023</span>
+        </div>
+      </div>
+    </div>
+    <div class="cvContent">
+      <a href="#" target="_blank" class="btn d-CV">Download CV <i class="bx bx-download"></i></a>
+    </div>
+  </div>
 </section>
 
 
@@ -469,7 +530,7 @@
                     </linearGradient>
                 </defs> 
                 <!-- Exemple d'élément utilisant le dégradé -->
-                <circle cx="85" cy="85" r="75" stroke-linecap="round" />
+               <circle cx="85" cy="85" r="75" stroke-linecap="round" />
               </svg>
               <h2 class="counter">
                 <span data-target="47">0</span>
@@ -492,7 +553,7 @@
                   </linearGradient>
               </defs> 
               <!-- Exemple d'élément utilisant le dégradé -->
-              <circle cx="85" cy="85" r="75" stroke-linecap="round" />
+             <circle cx="85" cy="85" r="75" stroke-linecap="round" />
             </svg>
             <h2 class="counter">
               <span data-target="56">0</span>
@@ -516,7 +577,7 @@
                 </linearGradient>
             </defs>
             <!-- Exemple d'élément utilisant le dégradé -->
-            <circle cx="85" cy="85" r="75" stroke-linecap="round" />
+           <circle cx="85" cy="85" r="75" stroke-linecap="round" />
           </svg>
           <h2 class="counter">
             <span data-target="19">0</span>
