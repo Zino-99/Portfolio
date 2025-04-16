@@ -8,10 +8,12 @@
     <meta name='viewport' content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Portfolio of Yacine Djadel, a Full Stack Developer with 3 years of experience in web and app development.">
     <title>Yacine DJADEL</title>
-    ² <link rel="stylesheet" href ="styles.css">
+    <link rel="stylesheet" href ="styles.css">
     <!-- Box icon-->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 
   </head>
 
@@ -23,9 +25,8 @@
       <ul class="navlist">
         <li><a href="#home" class="active">Home</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#blog">Blog</a></li>
+        <li><a href="#skill">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
 
@@ -49,7 +50,7 @@
         <p>Passionate developer, I design high-performance and intuitive applications that combine design, fluidity, and efficiency. My goal: turning your ideas into unique digital experiences</p>
         
         <div class="btn-box">
-          <a href="djadel.vfc@mail.com" class="btn">Hire Me Now !<i class="bx bx-right-arrow-alt"></i> </a>
+          <a href="#" id="hireMeBtn" class="btn">Hire Me Now !<i class="bx bx-right-arrow-alt"></i> </a>
           <a href="img/YACINE_DJADEL.pdf" target="_blank" class="btn d-CV"> Download CV <i class="bx bx-download"></i></a>
         </div>
 
@@ -87,85 +88,6 @@
 
 </section>
 
-<!--<section class="about" id="about">
-     <!--- <div class="about-img">
-        <img src="./img/robothello.png" alt="" class="aboutHero">
-        <div class="showcase-ring">
-          <img src="shapes/rings.png" class="ring">
-          <img src="shapes/circle.png" class="circle">
-        </div>
-      </div> -->
-
-      <!--<div class="about-content">
-        <h2 class="heading">About Me</h2>
-        <h3>Student at École Multimédia looking for an apprenticeship</h3>
-        <p class="about_p">Learn, design, and innovate: three pillars that guide my journey. As a student at École Multimédia, I am looking for an apprenticeship to develop my skills and contribute to meaningful projects alongside inspiring professionals</p>
-        <div class="about-btn">
-          <button class="active" onclick="changeContent('skills')">Main Skills</button>
-          <button onclick="changeContent('awards')">Awards</button>
-          <button onclick="changeContent('education')">Education</button>
-        </div>
-        <div class="content-btn">
-          <div class="content">
-            <div class="text-box">
-            <p>User Experience Design - UI / UX</p>
-            <span>Delight the user and make it work </span>
-            </div>
-
-            <div class="text-box">
-              <p>User Experience Design - UI / UX</p>
-              <span>Delight the user and make it work </span>
-            </div>
-    
-            <div class="text-box">
-              <p>User Experience Design - UI / UX</p>
-              <span>Delight the user and make it work </span>
-            </div>
-          </div>
-
-          <div class="content">
-            <div class="text-box">
-            <p>User Experience Design - UI / UX</p>
-            <span>Delight the user and make it work </span>
-            </div>
-
-            <div class="text-box">
-              <p>User Experience Design - UI / UX</p>
-              <span>Delight the user and make it work </span>
-            </div>
-    
-            <div class="text-box">
-              <p>User Experience Design - UI / UX</p>
-              <span>Delight the user and make it work </span>
-            </div>
-          </div>
-        </div>
-
-          <div class="content">
-            <div class="text-box">
-              <p>User Experience Design - UI / UX</p>
-              <span>Delight the user and make it work </span>
-            </div>
-
-            <div class="text-box">
-              <p>User Experience Design - UI / UX</p>
-              <span>Delight the user and make it work </span>
-            </div>  
-
-            <div class="text-box">
-              <p>User Experience Design - UI / UX</p>
-              <span>Delight the user and make it work </span>
-            </div> 
-          </div> 
-        
-          <div class="cvContent">
-          <a href="#" target="_blank" class="btn d-CV">Download CV <i class="bx bx-download"></i></a>
-
-        </div>
-        </div>
-        </div>
-</section>-->
-
 
 
 <section class="about" id="about"> 
@@ -176,61 +98,78 @@
     <div class="about-btn">
       <!-- On associe chaque bouton avec la section via l'attribut data-section -->
       <button class="active" data-section="main-skills" onclick="changeContent('main-skills')">Main Skills</button>
-      <button data-section="awards" onclick="changeContent('awards')">Awards</button>
-      <button data-section="education" onclick="changeContent('education')">Education</button>
+      <button data-section="education" onclick="changeContent('education')"> Experience</button>
+      <button data-section="awards" onclick="changeContent('awards')">Education</button>
+      
     </div>
     <div class="content-btn">
       <!-- Main Skills content -->
-      <div class="content main-skills">
+      <div class="content main-skills ">
         <div class="text-box">
-          <p>Figma User Experience Design - UI / UX</p>
-          <span>Passionate about designing intuitive interfaces, I create smooth and memorable user experiences.</span>
+          <p>Front-end  </p>
+          <p><span>React/Next</span> </p>
+          <span>Creating dynamic and intuitive interfaces</span>
         </div>
         <div class="text-box">
-          <p>Web Development - HTML, CSS, JavaScript</p>
-          <span>Creating interactive websites</span>
+          <p>Back-end </p>
+          <p><span>PHP, symfony Firebase</span></p>
+          <span>Building strong foundations</span>
         </div>
         <div class="text-box">
-          <p>Graphic Design - Adobe Suite</p>
-          <span>Designing beautiful visuals</span>
+          <p>Tools & DevOps  </p>
+          <p><span>Git, Docker</span></p>
+          <span>Automate, version, deploy</span>
         </div>
+        <div class="text-box">
+          <p>Design & Prototypage </p>
+          <p><span>Figma</span></p>
+          <span>Bringing ideas to life</span>
+        </div>
+
       </div>
 
       <!-- Awards content, hidden initially -->
       <div class="content awards" style="display: none;">
         <div class="text-box">
-          <p>Best UX/UI Designer Award 2024</p>
-          <span>Awarded for excellence in design</span>
+          <p>Internship at Stoptca</p>
+          <p><span>Frontend Developer</span></p>
+          <span>Design mockups in Figma, implementation of the mockups</span>
         </div>
-        <div class="text-box">
-          <p>Web Design Excellence 2023</p>
-          <span>Recognized for outstanding web design skills</span>
-        </div>
+  
       </div>
 
       <!-- Education content, hidden initially -->
       <div class="content education" style="display: none;">
         <div class="text-box">
-          <p>Bachelor in Multimedia</p>
-          <span>École Multimédia, 2024</span>
+          <p>Bachelor 2 </p>
+          <p><span>Multimedia School</span></p>
+          <span>2024</span>
         </div>
         <div class="text-box">
-          <p>Online Courses: UX/UI Design</p>
-          <span>Coursera, 2023</span>
+          <p>Security Agent CQP/APS </p>
+          <p><span>AB Formation Sud</span></p>
+          <span>2021</span>
         </div>
+        <div class="text-box">
+          <p>L1 Computer Science </p>
+          <p><span>University of Avignon</span></p>
+          <span>2019</span>
+        </div>
+
       </div>
     </div>
-    <div class="cvContent">
+    <div class="cvContent" >
       <a href="#" target="_blank" class="btn d-CV">Download CV <i class="bx bx-download"></i></a>
     </div>
   </div>
 </section>
 
-
-<section class="services" id="services">
+<!------------------Section Competence----------->
+<section class="services" id="skill">
   <div class="main-text">
-    <h2 class="heading">My Services</h2>
-    <span>what i will do for you</span>
+    <h2 class="heading">My Skills</h2>
+    <h3>Combining design and development to create smooth and high-performance web experiences.</h3>
+    <p>Mastering both front-end and back-end to build complete and intuitive web applications</p>
   </div>
 
   <div class="allServices">
@@ -239,8 +178,8 @@
         <i class="bx bx-layer"></i>
         <span></span>
       </div>
-      <h3>App Development</h3>
-      <p>otre balise est correcte et fonctionnera comme prévu pour inclure le fichier CSS de Boxicons dans votre projet. Si vous utilisez une structure propre comme indiqué ci-dessus, tout devrait bien fonctionner !</p>
+      <h3>Front-end</h3>
+      <p> Using HTML, CSS, JavaScript, and React, I design modern, responsive, and high-performance websites, providing a smooth and dynamic user experience.</p>
       <a href="#" class="readMore">Read More</a>
     </div>
 
@@ -249,8 +188,8 @@
         <i class="bx bx-code-alt"></i>
         <span></span>
       </div>
-      <h3>Web Development</h3>
-      <p>votre balise est correcte et fonctionnera comme prévu pour inclure le fichier CSS de Boxicons dans votre projet. Si vous utilisez une structure propre comme indiqué ci-dessus, tout devrait bien fonctionner !</p>
+      <h3>Back-end</h3>
+      <p>With PHP, Symfony, and Firebase, I build robust and scalable back-end systems that ensure seamless data management and efficient performance.</p>
       <a href="#" class="readMore">Read More</a>
     </div>
 
@@ -260,7 +199,7 @@
         <span></span>
       </div>
       <h3>UI /UX Design</h3>
-      <p>otre balise est correcte et fonctionnera comme prévu pour inclure le fichier CSS de Boxicons dans votre projet. Si vous utilisez une structure propre comme indiqué ci-dessus, tout devrait bien fonctionner !</p>
+      <p>Using Figma, I design modern and intuitive UX/UI interfaces, ensuring a seamless, engaging, and visually appealing user experience</p>
       <a href="#" class="readMore">Read More</a>
     </div>
 
@@ -269,30 +208,113 @@
         <i class="bx bx-party"></i>
         <span></span>
       </div>
-      <h3>Degital Marketing</h3>
-      <p>otre balise est correcte et fonctionnera comme prévu pour inclure le fichier CSS de Boxicons dans votre projet. Si vous utilisez une structure propre comme indiqué ci-dessus, tout devrait bien fonctionner !</p>
+      <h3>Tools & DevOps</h3>
+      <p>With Git and Docker, I streamline workflows, automate processes, and ensure efficient deployment for a smooth development cycle.</p>
       <a href="#" class="readMore">Read More</a>
     </div>
   </div>
 
-  <div class="propsal">
+  <div class="proposal" id="contact">
     <div class="text-box">
       <span>Get it Touch</span>
       <h3>Have a Project On Your Mind</h3>
-      <a href="#contact" class="btn">Contact Me</a>
+      <a href="#contact" class="btn" id="openModalBtn">Contact Me</a> 
       </div>
-      <img src="./img/robothello.png" class="first">
-    </div>
-      <div class="showcase">
-        <img src="shapes/rings.png" class="ring">
-        <img src="shapes/circle.png" class="circle">
-        <img src="shapes/circle.png" class="circle2">
-        <img src="shapes/circle.png" class="circle3">
-        <img src="shapes/half-ring.png" class="half-ring">
-      </div>
+</div>
+
+<div id="contactModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>My contact </h2>
+    <p><i class="fas fa-envelope"></i> <strong>Email :</strong> djadel.vfc@gmail.com</p>
+    <p><i class="fas fa-phone"></i> <strong>Phone :</strong> +33 6 67 30 09 75</p>
+  </div>
+</div>
+
+  
+
 </section>
 
-<section>
+
+
+
+<section class="project-of-the-moment" id="projects">
+  <div class="container">
+    <h2 class="section-title">Project of the moment</h2>
+    <div class="project-content">
+      <img src="img/Orange_Blue.png" alt="Projet du moment" class="project-image">
+      <div class="project-info">
+        <h3>MusiChat</h3>
+        <p class="project-description">
+          Développer une application web permettant aux musiciens de se connecter et d’échanger.
+Il existe une base de musiciens dans l’application, et ils peuvent déjà échanger.
+        </p>
+        <ul class="stack">
+          <li><b>Frontend :</b> React white Vite.</li>
+          <li><b>Backend :</b> PHP procedural or object with MySQL (PDO API)</li>
+          <li><b>State management :</b> Context API or Redux Toolkit or Zustand</li>
+          <li><b>Authentification :</b> JWT white bcrypt.</li>
+          <li><b>Messaging :</b> REST API in PHP for exchanging synchronous messages</li>
+          <li><b>Data storage :</b> MySQL</li>
+          <li><b>Tests :</b> PHPUnit for the backend and React Testing Library for the frontend.</li>
+        </ul>
+        <a href="https://github.com/Zino-99/MusiChat" target="_blank"  class="btn project-btn"> <i class="fab fa-github" style="margin-right: 6px;"></i> Github</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+      <footer>
+        <p>Copyright © 2025 by <span>Yacine DJADEL</span>|| All Right Reservd</p>
+      </footer>
+  
+      <div id="progress">
+        <span id="progress-value">
+          <i class="bx bxs-chevrons-up"></i>
+        </span>
+      </div>
+   <!-- scroll reveal -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <!--Swiper JS-->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <!--mixitup cdn js-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mixitup/3.3.1/mixitup.min.js"></script>
+    <script src="script.js"></script>
+  
+    </body>
+  </html>
+
+   
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!--<section>
   <div class="main-text">
     <h2 class="heading">My Services</h2>
     <span>what i will do for you</span>
@@ -372,10 +394,10 @@
       </div>
   </div>
 </div>
-</section>
+</section>-->
  
 
-<section class="blog" id="blog">
+<!--<section class="blog" id="blog">
   <div class="main-text">
     <h2 class="heading">blog</h2>
     <span>Latest News & Post</span>
@@ -465,9 +487,9 @@
       <img src="shapes/half-ring.png" class="half-ring">
     </div>
 
-</section>
+</section>-->
 
-<section class="down-box" id="contact">
+<!--<section class="down-box" id="contact">
   <div class="contactSkills">
     <div class="contact-info">
       <div class="main-text">
@@ -506,7 +528,7 @@
                           <stop offset="100%" stop-color="#673ab7" />
                       </linearGradient>
                   </defs>
-                  <!-- Exemple d'élément utilisant le dégradé -->
+            
                   <circle cx="85" cy="85" r="75" stroke-linecap="round" />
                 </svg>
                 <h2 class="counter">
@@ -529,7 +551,7 @@
                         <stop offset="100%" stop-color="#673ab7" />
                     </linearGradient>
                 </defs> 
-                <!-- Exemple d'élément utilisant le dégradé -->
+              
                <circle cx="85" cy="85" r="75" stroke-linecap="round" />
               </svg>
               <h2 class="counter">
@@ -552,7 +574,7 @@
                       <stop offset="100%" stop-color="#673ab7" />
                   </linearGradient>
               </defs> 
-              <!-- Exemple d'élément utilisant le dégradé -->
+            
              <circle cx="85" cy="85" r="75" stroke-linecap="round" />
             </svg>
             <h2 class="counter">
@@ -576,7 +598,7 @@
                     <stop offset="100%" stop-color="#673ab7" />
                 </linearGradient>
             </defs>
-            <!-- Exemple d'élément utilisant le dégradé -->
+         
            <circle cx="85" cy="85" r="75" stroke-linecap="round" />
           </svg>
           <h2 class="counter">
@@ -593,486 +615,90 @@
  </div>
 </div>
 
-</section>
+</section>-->
 
 
 
-      <footer>
-        <p>Copyright © 2025 by <span>Yacine DJADEL</span>|| All Right Reservd</p>
-      </footer>
-  
-      <div id="progress">
-        <span id="progress-value">
-          <i class="bx bxs-chevrons-up"></i>
-        </span>
-      </div>
-   <!-- scroll reveal -->
-    <script src="https://unpkg.com/scrollreveal"></script>
-    <!--Swiper JS-->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-    <!--mixitup cdn js-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mixitup/3.3.1/mixitup.min.js"></script>
-    <script src="script.js"></script>
-  
-    </body>
-  </html>
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-    
-    <!---<section class="services" id="services">
-      <div class="main-text">
-        <h2 class="heading">My Services</h2>
-        <span>what i will do for you</span>
-      </div>
-
-      <div class="allServices">
-        <div class="servicesItem">
-          <div class="icon-services">
-            <i class="bx bx-layer"></i>
-            <span></span>
-          </div>
-          <h3>App Development</h3>
-          <p>otre balise est correcte et fonctionnera comme prévu pour inclure le fichier CSS de Boxicons dans votre projet. Si vous utilisez une structure propre comme indiqué ci-dessus, tout devrait bien fonctionner !</p>
-          <a href="#" class="readMore">Read More</a>
-        </div>
-
-        <div class="servicesItem">
-          <div class="icon-services">
-            <i class="bx bx-code-alt"></i>
-            <span></span>
-          </div>
-          <h3>Web Development</h3>
-          <p>otre balise est correcte et fonctionnera comme prévu pour inclure le fichier CSS de Boxicons dans votre projet. Si vous utilisez une structure propre comme indiqué ci-dessus, tout devrait bien fonctionner !</p>
-          <a href="#" class="readMore">Read More</a>
-        </div>
-
-        <div class="servicesItem">
-          <div class="icon-services">
-            <i class="bx bx-desktop"></i>
-            <span></span>
-          </div>
-          <h3>UI /UX Design</h3>
-          <p>otre balise est correcte et fonctionnera comme prévu pour inclure le fichier CSS de Boxicons dans votre projet. Si vous utilisez une structure propre comme indiqué ci-dessus, tout devrait bien fonctionner !</p>
-          <a href="#" class="readMore">Read More</a>
-        </div>
-
-        <div class="servicesItem">
-          <div class="icon-services">
-            <i class="bx bx-party"></i>
-            <span></span>
-          </div>
-          <h3>Degital Marketing</h3>
-          <p>otre balise est correcte et fonctionnera comme prévu pour inclure le fichier CSS de Boxicons dans votre projet. Si vous utilisez une structure propre comme indiqué ci-dessus, tout devrait bien fonctionner !</p>
-          <a href="#" class="readMore">Read More</a>
-        </div>
-      </div>
-
-      <div class="prospal">
-        <div class="text-box">
-          <span>Get it Touch</span>
-          <h3>Have a Project On Your Mind</h3>
-          <a href="#contact" class="btn">Contact Me</a>
-          </div>
-          <img src="img/support.png" class="first">
-          </div>
-          <div class="showcase">
-            <img src="shapes/rings.png" class="ring">
-            <img src="shapes/circle.png" class="circle">
-            <img src="shapes/circle.png" class="circle2">
-            <img src="shapes/circle.png" class="circle3">
-            <img src="shapes/half-ring.png" class="half-ring">
-          </div>
-    </section>
-
-    <section>
-      <div class="main-text">
-        <h2 class="heading">My Services</h2>
-        <span>what i will do for you</span>
-      </div>
-
-    <div class="fillter-buttons">
-      <button class="button mixtup-control-active" data-filter="all">All Work</button>
-      <button class="button" data-filter=".web">Web Development</button>
-      <button class="button" data-filter=".uiux">UI/UX Design </button>
-      <button class="button" data-filter=".branding">Branding Design</button>
-      </div>
-
-    <div class="portfolio-gallery">
-      <div class="portfolio-box mix uiux">
-        <div class="portfolio-content">
-        <h3>UI/UX Design</h3>
-        <p>Votre balise est correcte et fonctionnera comme prévu pour inclure le fichier CSS de Boxicons dans votre projet. Si vous utilisez une structure propre comme indiqué ci-dessus, tout devrait bien fonctionner !</p>
-        <a href="#" class="readMore">Explore More</a>
-        </div>
-        <div class="portfolio-img">
-          <img src="img/portfolio/1.png" alt="">
-          </div>
-      </div>
-
-      <div class="portfolio-box mix web">
-        <div class="portfolio-content">
-        <h3>Web Design</h3>
-        <p>Votre balise est correcte et fonctionnera comme prévu pour inclure le fichier CSS de Boxicons dans votre projet. Si vous utilisez une structure propre comme indiqué ci-dessus, tout devrait bien fonctionner !</p>
-        <a href="#" class="readMore">Explore More</a>
-        </div>
-        <div class="portfolio-img">
-          <img src="img/portfolio/2.png" alt="">
-          </div>
-      </div>
-
-      <div class="portfolio-box mix web">
-        <div class="portfolio-content">
-        <h3>Web Development</h3>
-        <p>Votre balise est correcte et fonctionnera comme prévu pour inclure le fichier CSS de Boxicons dans votre projet. Si vous utilisez une structure propre comme indiqué ci-dessus, tout devrait bien fonctionner !</p>
-        <a href="#" class="readMore">Explore More</a>
-        </div>
-        <div class="portfolio-img">
-          <img src="img/portfolio/3.png" alt="">
-          </div>
-      </div>
-
-      <div class="portfolio-box mix web">
-        <div class="portfolio-content">
-        <h3>UI/UX Design</h3>
-        <p>Votre balise est correcte et fonctionnera comme prévu pour inclure le fichier CSS de Boxicons dans votre projet. Si vous utilisez une structure propre comme indiqué ci-dessus, tout devrait bien fonctionner !</p>
-        <a href="#" class="readMore">Explore More</a>
-        </div>
-        <div class="portfolio-img">
-          <img src="img/portfolio/4.png" alt="">
-          </div>
-      </div>
-
-      <div class="portfolio-box mix uiux">
-        <div class="portfolio-content">
-        <h3>UI/UX Design</h3>
-        <p>Votre balise est correcte et fonctionnera comme prévu pour inclure le fichier CSS de Boxicons dans votre projet. Si vous utilisez une structure propre comme indiqué ci-dessus, tout devrait bien fonctionner !</p>
-        <a href="#" class="readMore">Explore More</a>
-        </div>
-        <div class="portfolio-img">
-          <img src="img/portfolio/5.png" alt="">
-          </div>
-      </div>
-
-      <div class="portfolio-box mix branding">
-        <div class="portfolio-content">
-        <h3>Web Development</h3>
-        <p>Votre balise est correcte et fonctionnera comme prévu pour inclure le fichier CSS de Boxicons dans votre projet. Si vous utilisez une structure propre comme indiqué ci-dessus, tout devrait bien fonctionner !</p>
-        <a href="#" class="readMore">Explore More</a>
-        </div>
-        <div class="portfolio-img">
-          <img src="img/portfolio/1.png" alt="">
-          </div>
-      </div>
-    </div>
-    </section>
-     
-
-    <section class="blog" id="blog">
-      <div class="main-text">
-        <h2 class="heading">blog</h2>
-        <span>Latest News & Post</span>
-        </div>
-        <div class="blog-box swiper mySwiper">
-          <div class="cards swiper-wapper">
-            <div class="card swiper-slide">
-              <div class="card-top">
-                <img src="img/blog/1.jpg" alt="">
-              </div>
-              <div class="card-info">
-                <h2>Mobile App Landing Page</h2>
-                <span class="date">Sunday,Aug 14, 2024</span>
-                <p class="excerpt"> Votre balise est correcte et fonctionnera comme prévu pour inclure le fichier CSS de Boxicons dans votre projet. Si vous utilisez une structure propre comme indiqué ci-dessus, tout devrait bien fonctionner !</p>
-                <a href="#" class="readMore">Explore More</a>
-              </div>
-            </div>
-
-            <div class="card swiper-slide">
-              <div class="card-top">
-                <img src="img/blog/2.jpg" alt="">
-              </div>
-              <div class="card-info">
-                <h2>Mobile App Landing Page</h2>
-                <span class="date">Sunday,Aug 14, 2024</span>
-                <p class="excerpt"> Votre balise est correcte et fonctionnera comme prévu pour inclure le fichier CSS de Boxicons dans votre projet. Si vous utilisez une structure propre comme indiqué ci-dessus, tout devrait bien fonctionner !</p>
-                <a href="#" class="readMore">Explore More</a>
-              </div>
-            </div>
-
-            <div class="card swiper-slide">
-              <div class="card-top">
-                <img src="img/blog/3.jpg" alt="">
-              </div>
-              <div class="card-info">
-                <h2>Mobile App Landing Page</h2>
-                <span class="date">Sunday,Aug 14, 2024</span>
-                <p class="excerpt"> Votre balise est correcte et fonctionnera comme prévu pour inclure le fichier CSS de Boxicons dans votre projet. Si vous utilisez une structure propre comme indiqué ci-dessus, tout devrait bien fonctionner !</p>
-                <a href="#" class="readMore">Explore More</a>
-              </div>
-            </div>
-
-            <div class="card swiper-slide">
-              <div class="card-info">
-                <img src="img/blog/4.jpg" alt="">
-              </div>
-              <div class="card-info">
-                <h2>Mobile App Landing Page</h2>
-                <span class="date">Sunday,Aug 14, 2024</span>
-                <p class="excerpt"> Votre balise est correcte et fonctionnera comme prévu pour inclure le fichier CSS de Boxicons dans votre projet. Si vous utilisez une structure propre comme indiqué ci-dessus, tout devrait bien fonctionner !</p>
-                <a href="#" class="readMore">Explore More</a>
-              </div>
-            </div>
-
-            <div class="card swiper-slide">
-              <div class="card-info">
-                <img src="img/blog/5.jpg" alt="">
-              </div>
-              <div class="card-info">
-                <h2>Mobile App Landing Page</h2>
-                <span class="date">Sunday,Aug 14, 2024</span>
-                <p class="excerpt"> Votre balise est correcte et fonctionnera comme prévu pour inclure le fichier CSS de Boxicons dans votre projet. Si vous utilisez une structure propre comme indiqué ci-dessus, tout devrait bien fonctionner !</p>
-                <a href="#" class="readMore">Explore More</a>
-              </div>
-            </div>
-
-            <div class="card swiper-slide">
-              <div class="card-info">
-                <img src="img/blog/6.jpg" alt="">
-              </div>
-              <div class="card-info">
-                <h2>Mobile App Landing Page</h2>
-                <span class="date">Sunday,Aug 14, 2024</span>
-                <p class="excerpt"> Votre balise est correcte et fonctionnera comme prévu pour inclure le fichier CSS de Boxicons dans votre projet. Si vous utilisez une structure propre comme indiqué ci-dessus, tout devrait bien fonctionner !</p>
-                <a href="#" class="readMore">Explore More</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="swiper-pagination"></div>
-
-        <div class="showcase">
-          <img src="shapes/ring.png" class="ring">
-          <img src="shapes/second-circle.png" class="second-circle">
+<!--<section class="about" id="about">
+     <!--- <div class="about-img">
+        <img src="./img/robothello.png" alt="" class="aboutHero">
+        <div class="showcase-ring">
+          <img src="shapes/rings.png" class="ring">
           <img src="shapes/circle.png" class="circle">
-          <img src="shapes/half-ring.png" class="half-ring">
         </div>
+      </div> -->
 
-    </section>
-
-    <section class="down-box" id="contact">
-      <div class="contactSkills">
-        <div class="contact-info">
-          <div class="main-text">
-            <h2 class="heading">Contact Me</h2>
-            <span>get in touch with me</span>
-            </div>
-          <form action="#">
-            <div class="input-box">
-              <input type="text" placeholder="First Name">
-              <input type="text" placeholder="Last Name">
-            </div>
-              <input type="email" placeholder="Email">
-              <input type="text" placeholder="Subject">
-              <textarea name="#" id="" cols="30" rows="10">
-              </textarea>
-              <div class="formBtn">
-                <button type="submit" class="btn">Send Message</button>
-                </div>
-                </form>
+      <!--<div class="about-content">
+        <h2 class="heading">About Me</h2>
+        <h3>Student at École Multimédia looking for an apprenticeship</h3>
+        <p class="about_p">Learn, design, and innovate: three pillars that guide my journey. As a student at École Multimédia, I am looking for an apprenticeship to develop my skills and contribute to meaningful projects alongside inspiring professionals</p>
+        <div class="about-btn">
+          <button class="active" onclick="changeContent('skills')">Main Skills</button>
+          <button onclick="changeContent('awards')">Awards</button>
+          <button onclick="changeContent('education')">Education</button>
         </div>
-        <div class="skills">
-          <div class="container">
-            <div class="skillbox">
-              <div class="main-text">
-                <h2 class="heading">My Skills</h2>
-                <span>Let Me Help you</span>
-              </div>
-              <div class="skill-wrap">
-                <div class="skill">
-                  <div class="outer-circle">
-                    <div class="inner-circle">
-                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="180px" height="180px">
-                      <defs>
-                          <linearGradient id="GradientColor">
-                              <stop offset="0%" stop-color="#e91e63" />
-                              <stop offset="100%" stop-color="#673ab7" />
-                          </linearGradient>
-                      </defs>-->
-                      <!-- Exemple d'élément utilisant le dégradé -->
-                      <!--<circle cx="85" cy="85" r="75" stroke-linecap="round" />
-                    </svg>
-                    <h2 class="counter">
-                      <span data-target="89">0</span>
-                      </h2>
-                  </div>
-                </div>
-                <div class="sk-title">
-                  HTML
-                  </div>
-              </div>
-
-              <div class="skill">
-                <div class="outer-circle">
-                  <div class="inner-circle"></div>
-                  <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="180px" height="180px">
-                    <defs>
-                        <linearGradient id="GradientColor">
-                            <stop offset="0%" stop-color="#e91e63" />
-                            <stop offset="100%" stop-color="#673ab7" />
-                        </linearGradient>
-                    </defs> -->
-                    <!-- Exemple d'élément utilisant le dégradé -->
-                    <!--<circle cx="85" cy="85" r="75" stroke-linecap="round" />
-                  </svg>
-                  <h2 class="counter">
-                    <span data-target="47">0</span>
-                    </h2>
-                </div>
-              </div>
-              <div class="sk-title">
-                CSS
-                </div>
+        <div class="content-btn">
+          <div class="content">
+            <div class="text-box">
+            <p>User Experience Design - UI / UX</p>
+            <span>Delight the user and make it work </span>
             </div>
 
-            <div class="skill">
-              <div class="outer-circle">
-                <div class="inner-circle">
-                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="180px" height="180px">
-                  <defs>
-                      <linearGradient id="GradientColor">
-                          <stop offset="0%" stop-color="#e91e63" />
-                          <stop offset="100%" stop-color="#673ab7" />
-                      </linearGradient>
-                  </defs> -->
-                  <!-- Exemple d'élément utilisant le dégradé -->
-                  <!--<circle cx="85" cy="85" r="75" stroke-linecap="round" />
-                </svg>
-                <h2 class="counter">
-                  <span data-target="56">0</span>
-                  </h2>
-              </div>
+            <div class="text-box">
+              <p>User Experience Design - UI / UX</p>
+              <span>Delight the user and make it work </span>
             </div>
-            <div class="sk-title">
-              JavaScript
-              </div>
-          </div>
-
-
-          <div class="skill">
-            <div class="outer-circle">
-              <div class="inner-circle">
-              <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="180px" height="180px">
-                <defs>
-                    <linearGradient id="GradientColor">
-                        <stop offset="0%" stop-color="#e91e63" />
-                        <stop offset="100%" stop-color="#673ab7" />
-                    </linearGradient>
-                </defs>--->
-                <!-- Exemple d'élément utilisant le dégradé -->
-                <!--<circle cx="85" cy="85" r="75" stroke-linecap="round" />
-              </svg>
-              <h2 class="counter">
-                <span data-target="19">0</span>
-                </h2>
-            </div>
-          </div>
-          <div class="sk-title">
-            UI/UX Design
-           </div>
-          </div>
-        </div>
-      </div>
-     </div>
-    </div>
-
-    </section>-->
-
     
-      
+            <div class="text-box">
+              <p>User Experience Design - UI / UX</p>
+              <span>Delight the user and make it work </span>
+            </div>
+          </div>
+
+          <div class="content">
+            <div class="text-box">
+            <p>User Experience Design - UI / UX</p>
+            <span>Delight the user and make it work </span>
+            </div>
+
+            <div class="text-box">
+              <p>User Experience Design - UI / UX</p>
+              <span>Delight the user and make it work </span>
+            </div>
+    
+            <div class="text-box">
+              <p>User Experience Design - UI / UX</p>
+              <span>Delight the user and make it work </span>
+            </div>
+          </div>
+        </div>
+
+          <div class="content">
+            <div class="text-box">
+              <p>User Experience Design - UI / UX</p>
+              <span>Delight the user and make it work </span>
+            </div>
+
+            <div class="text-box">
+              <p>User Experience Design - UI / UX</p>
+              <span>Delight the user and make it work </span>
+            </div>  
+
+            <div class="text-box">
+              <p>User Experience Design - UI / UX</p>
+              <span>Delight the user and make it work </span>
+            </div> 
+          </div> 
+        
+          <div class="cvContent">
+          <a href="#" target="_blank" class="btn d-CV">Download CV <i class="bx bx-download"></i></a>
+
+        </div>
+        </div>
+        </div>
+</section>-->

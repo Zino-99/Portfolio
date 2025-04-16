@@ -11,7 +11,8 @@
 :root {
   --bg-color: #e3edf7;
   --pr-color: #eb0000;
-  --gradient-red-bg: linear-gradient(180deg, rgba(235, 0, 0, 1) 0%, rgba(235, 0, 0, 1) 51%, rgba(235, 0, 0, 1) 100%);
+  --gradient-red-text: linear-gradient(180deg, rgba(235, 0, 0, 1) 0%, rgba(235, 0, 0, 1) 51%, rgba(235, 0, 0, 1) 100%);
+  --gradient-red-bg: linear-gradient(180deg, rgba(235, 0, 0, 1) 0%, rgba(166, 24, 24, 1) 51%, rgba(127, 12, 12, 1) 100%);
   --gradient-white-bg: linear-gradient(0deg, #fff 0%, #edf4fa 51%, #e5eef7 100%);
   --gradient-color-bg: linear-gradient(180deg, rgba(247, 1, 120, 1) 0%, rgba(160, 8, 156, 1) 51%, rgba(99, 13, 178, 1) 100%);
   --main-color: #e6006d;
@@ -50,7 +51,11 @@ header .logo {
   font-weight: 700;
 }
 
-span {
+.logo span {
+  color: var(--pr-color);
+}
+
+.home span {
   background: var(--pr-color);
   background-clip: text;
   color: transparent;
@@ -131,10 +136,17 @@ ul.navlist {
   opacity:0;
 }
 
+
+.section1, .section2 {
+  margin: 0;
+  padding: 0;
+}
+
 /*---------------------Home section --------------------------*/
 
-section{
+.home{
   padding:90px 8%;
+
 }
 .home{
     min-height: 100vh;
@@ -175,7 +187,7 @@ section{
   margin-bottom: 1rem;
   color: transparent;
   -webkit-text-stroke: 0.1vw #eb0000;
-  background: var(--gradient-red-bg);
+  background: var(--gradient-red-text);
   background-repeat: no-repeat;
   -webkit-background-clip: text;
   background-clip: text;
@@ -399,8 +411,10 @@ section{
 
 /*------------------------About Section------------------*/
 
+
 .about {
 
+  padding: 20px 8%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -413,22 +427,14 @@ section{
 
 }
 
+
+
 .about.about-img .aboutHero{
   width:40vw;
   height: auto;
 }
 
-.about-img .ring{
-  position:absolute;
-  top:22%;
-  right:1%;
-}
 
-.about-img .circle{
-  position: absolute;
-  top:0%;
-  left:0%
-}
 
 .about-content{
   padding:3rem 0;
@@ -449,20 +455,54 @@ section{
   text-align: center;
 }
 
-.about-content p{
-  color:var(--font-color);
-
+.content-btn {
+ 
+  text-align: center; 
+}
+.content-btn p{
+  
+  color: var(--pr-color);
 
 }
 
+.content-btn {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Espacement entre les sections */
+}
+
+.content {
+  flex: 1; /* Permet de répartir l'espace entre les sections */
+  min-width: 250px; /* Largeur minimale pour éviter un écrasement */
+  display: block; /* Assure l'affichage */
+}
+
+
+
+
+.about span{
+  color: var(--font-color);
+}
+
+
 .about_p{
   text-align: center;
+  color:var(--font-color);
 }
 
 .text-box p{
   font-size: 1.1rem;
   font-weight:500;
+  display: flex;
+  flex-direction: column; /* Empile le texte */
+  margin: 5px 0;
 }
+
+.text-box p, .text-box span {
+  display: inline-block;
+  margin-right: 10px; /* Vous pouvez ajuster l'espacement entre les éléments */
+}
+
 
 .about-btn{
   margin: 2.8rem 0;
@@ -474,6 +514,7 @@ section{
 
 .about-btn button, .cvContent a{
   background: var(--gradient-white-bg2);
+
   padding: 13px 25px;
   border-radius: 5px;
   border: none;
@@ -488,6 +529,12 @@ section{
 
 }
 
+.cvContent {
+  display: flex;
+  justify-content: center;  /* Centrer horizontalement */
+  align-items: center;      /* Centrer verticalement */
+  height: 20vh;            /* Optionnel : pour centrer verticalement par rapport à la hauteur de la page */
+}
 .about-btn  button.active{
   background: var(--pr-color);
   color:#ffff;
@@ -514,29 +561,44 @@ section{
 
 .services{
   position: relative;
+  padding: 0px 8%;
+
+  
+ 
 }
 
 .main-text{
   width: 100%;
   text-align: center;
-  margin-bottom:  2rem;
+  margin-bottom:  2.1rem;
+ 
 }
+
+
 
 .main-text .heading{
-  color: var(--main-color);
+  color: var(--pr-color);
+  font-size: 2.3rem;
+  
 }
 
-.main-text span{
+.main-text h3{
+  color: #000;
+  line-height: 3rem;
+  margin: .5rem 0;
+  font-size: 1.6rem;
+}
+
+.main-text p{
   color: var(--font-color);
-  font-weight: 200;
-  text-transform: uppercase;
+  font-size: 1.1rem;
 }
 
 .allServices{
   display: grid;
   grid-template-columns: repeat(auto-fit,minmax(220px,auto));
   align-items: center;
-  gap: 2rem;
+  gap: 3.5rem;
   position: relative;
   z-index: 1;
 
@@ -562,7 +624,7 @@ section{
               rgba(0, 0, 0, 0.06)0px 1px 2px 0px;
   padding: .5rem;
   border-radius: 50%;
-  background: var(--gradient-color-bg);
+  background: var(--pr-color);
   width: 70px;
   height: 70px;
   color: #fff;
@@ -586,7 +648,8 @@ section{
   height: 80px;
   left: -5px;
   top: -5px;
-  background: var(--gradient-color-bg);
+  background: var(--gradient-red-bg);
+  filter: blur(2px);
   border-radius: 50%;
   animation: animate 1s linear infinite;
 
@@ -625,18 +688,61 @@ section{
   background: var(--gradient-white-bg2);
   box-shadow: rgba(0, 0, 0, 0.1)0px 1px 3px 0,
               rgba(0, 0, 0, 0.06)0px 1px 2px 0px;
-  margin-top: 8rem;
+  margin-top: 6rem;
   border-radius: 10px;
-  padding: 0rem 2rem;
+  padding: 2rem 2rem;
   z-index:1
 }
 
-.proposal img{
-  width: 40vw;
-  height: auto;
-  margin: -4rem 0 0;
-  z-index: 2;
 
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+  background-color: white;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  animation: fadeIn 0.4s ease;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: black;
+}
+
+.modal-content p {
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+.modal-content strong {
+  color: var(--pr-color);
+}
+
+.modal-content i {
+  color: var(--pr-color);
+  margin-right: 8px; /* petit espace entre l’icône et le texte */
 }
 
 .services .text-box span{
@@ -1024,6 +1130,77 @@ h2.counter span{
   font-weight: 500;
 }
 
+
+.project-of-the-moment {
+  padding: 60px 0;
+  background-color: var(--gradient-white-bg2); /* Couleur de fond claire */
+  text-align: center;
+  margin-top: 50px;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: var(--pr-color);
+}
+
+.project-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 100px; /* Espace entre l'image et la description */
+}
+
+.stack{
+  font-size: 1.0rem;
+  margin-bottom: 40px;
+  color: #555;
+}
+
+.project-image {
+  width: 100%;
+  max-width: 400px; /* Limite la largeur de l'image */
+  height: auto;
+  border-radius: 8px;
+ 
+}
+
+.project-info {
+  max-width: 600px;
+  text-align: left;
+}
+
+.project-info h3 {
+  font-size: 2rem;
+  color: var(--pr-color);
+  margin: 10px 0;
+}
+
+.project-description {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.project-btn {
+  background-color: var(--pr-color);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.project-btn:hover {
+  background-color: #b30000;
+}
+
+
+
+
+
+
 /*--------------------------  Footer Section ------------*/
 
 footer{
@@ -1063,6 +1240,8 @@ footer{
   font-size: 25px;
 
 }
+
+
 
 
 
@@ -1160,8 +1339,38 @@ footer{
   }
 }
 
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 
 /*------------------------ Brank-points -------------------*/
+
+/* Réduire la taille des items en fonction de la largeur de l'écran */
+@media (max-width: 768px) {
+  .carousel-item {
+    min-width: 250px; /* Taille réduite pour mobile */
+    margin: 0 5px; /* Moins de marge entre les éléments */
+  }
+
+  .section-title {
+    font-size: 2rem; /* Taille du titre plus petite */
+  }
+}
+
+/* Pour les très petits écrans (moins de 480px) */
+@media (max-width: 480px) {
+  .carousel-item {
+    min-width: 200px; /* Taille encore plus réduite */
+  }
+
+  .carousel-control {
+    font-size: 1.2rem; /* Réduire la taille des boutons */
+    padding: 8px; /* Moins de padding */
+  }
+}
+
 
 @media (max-width:1200px){
   html{

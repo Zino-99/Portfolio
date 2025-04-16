@@ -19,11 +19,11 @@ navlist.addEventListener("click", ()=>{
 
 
 //rotate text js 
-let text = document.querySelector(".text p");
+/*let text = document.querySelector(".text p");
 
 text.innerHTML = text.innerHTML.split("").map((char, i) =>
   `<b style="transform: rotate(${i * 6.3}deg)">${char}</b>`
-).join("");
+).join("");*/
 
 
 //switch between about button*/
@@ -62,3 +62,41 @@ function changeContent(section) {
     activeButton.classList.add('active');
   }
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+  const modal = document.getElementById("contactModal");
+  const closeBtn = document.querySelector(".close");
+
+  // Sélectionne les DEUX boutons
+  const openBtns = [
+    document.getElementById("openModalBtn"),
+    document.getElementById("hireMeBtn")
+  ];
+
+  // Ajoute un listener à chacun des boutons
+  openBtns.forEach(btn => {
+    if (btn) {
+      btn.addEventListener("click", function (e) {
+        e.preventDefault();
+        modal.style.display = "block";
+      });
+    }
+  });
+
+  // Bouton de fermeture
+  closeBtn.addEventListener("click", function () {
+    modal.style.display = "none";
+  });
+
+  // Fermer en cliquant à l'extérieur
+  window.addEventListener("click", function (event) {
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  });
+});
+
+
+
+
+
