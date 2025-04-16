@@ -67,10 +67,11 @@ document.addEventListener("DOMContentLoaded", function () {
   const modal = document.getElementById("contactModal");
   const closeBtn = document.querySelector(".close");
 
-  // Sélectionne les DEUX boutons
+  // Sélectionne les 3 boutons
   const openBtns = [
     document.getElementById("openModalBtn"),
-    document.getElementById("hireMeBtn")
+    document.getElementById("hireMeBtn"),
+    document.getElementById("letschat")
   ];
 
   // Ajoute un listener à chacun des boutons
