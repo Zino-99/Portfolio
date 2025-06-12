@@ -1486,3 +1486,241 @@ footer{
 
 
 }
+
+/* Correction mobile spécifique */
+@media (max-width: 768px) {
+  .home {
+    padding: 60px 5% !important;
+    justify-content: center !important;
+    gap: 2em !important;
+  }
+
+  .hero-info {
+    width: 100% !important;
+    max-width: 100vw !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+  }
+
+  .text-animate {
+    width: 100% !important;
+    margin-left: -5px !important;
+  }
+
+  .btn-box {
+    width: 100% !important;
+    max-width: 100% !important;
+    justify-content: center !important;
+    margin-left: 0 !important;
+    gap: 5px;
+  }
+
+  .img-hero {
+    margin: 0 auto !important;
+    right: 0 !important;
+    transform: none !important;
+    top:25px;
+  }
+
+  .img-hero img {
+    width: 100% !important;
+    max-width: 300px !important;
+    height: auto !important;
+    right: 0 !important;
+    top: 0 !important;
+  }
+
+  .social-media {
+    width: 100% !important;
+    justify-content: center !important;
+    gap: 15px !important;
+    margin-top: 25px !important;
+  }
+
+  /* Correction spécifique pour le texte */
+  h1, h3, .text-animate h2, p {
+    text-align: center !important;
+    padding: 0 10px !important;
+    width: 100% !important;
+  }
+
+  .text-animate h2 {
+    font-size: 1.8rem !important;
+    white-space: normal !important;
+  }
+  .img-hero::before,
+  .img-hero::after {
+    animation: none !important;
+    display: none !important;
+  }
+}
+
+/* Protection du desktop */
+@media (min-width: 769px) {
+  .home {
+    padding-left: 8% !important;
+    padding-right: 8% !important;
+  }
+  
+  .img-hero {
+    margin-right: 5% !important;
+    transform: translateY(-25px) !important;
+  }
+  
+  .hero-info {
+    width: auto !important;
+  }
+}
+
+/*-----------section about---------*/
+
+@media (max-width: 768px) {
+  .about-content {
+    padding: 40px 20px !important;
+  }
+
+  .heading {
+    font-size: 2rem !important;
+  }
+
+  .about-content h3 {
+    font-size: 1.1rem !important;
+    line-height: 1.4 !important;
+  }
+
+  .about_p {
+    font-size: 0.9rem !important;
+    padding: 0 10px !important;
+  }
+
+  .about-btn {
+    flex-direction: column !important;
+    gap: 12px !important;
+    margin: 25px 0 !important;
+  }
+
+  .about-btn button {
+    width: 100% !important;
+    padding: 12px 18px !important;
+    font-size: 0.9rem !important;
+  }
+
+  .content-btn {
+    margin-top: 25px !important;
+  }
+
+  .text-box {
+    width: 100% !important;
+    margin: 10px 0 !important;
+    padding: 15px !important;
+  }
+
+  .text-box p:first-child {
+    font-size: 1rem !important;
+  }
+
+  .text-box p span {
+    font-size: 0.9rem !important;
+  }
+
+  .text-box span {
+    font-size: 0.85rem !important;
+  }
+
+  .cvContent {
+    text-align: center !important;
+    margin-top: 30px !important;
+  }
+
+  .cvContent .btn {
+    width: 100% !important;
+    max-width: 280px !important;
+    padding: 12px 20px !important;
+  }
+}
+
+/*--------- Section Myskills-----------*/
+
+@media (max-width: 768px) {
+
+
+  .main-text h3 {
+    font-size: 1.1rem !important;
+    line-height: 1.4 !important;
+  }
+
+  .main-text p{
+    font-size: 0.9rem !important;
+    padding: 0 10px !important;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .project-of-the-moment {
+    padding: 40px 15px !important;
+  }
+
+  .project-content {
+    flex-direction: column !important;
+    gap: 30px !important;
+  }
+
+  .project-image {
+    max-width: 100% !important;
+    height: auto !important;
+    margin: 0 auto !important;
+  }
+
+  .project-info {
+    width: 100% !important;
+    padding: 0 !important;
+  }
+
+  .section-title {
+    font-size: 1.8rem !important;
+    margin-bottom: 25px !important;
+  }
+
+  .project-info h3 {
+    font-size: 1.6rem !important;
+    text-align: center !important;
+  }
+
+  .project-description {
+    font-size: 0.95rem !important;
+    line-height: 1.6 !important;
+    margin: 15px 0 !important;
+  }
+
+  .stack {
+    padding-left: 20px !important;
+    margin: 15px 0 !important;
+  }
+
+  .stack li {
+    font-size: 0.9rem !important;
+    margin-bottom: 10px !important;
+    line-height: 1.5 !important;
+  }
+
+  .project-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 12px 20px !important;
+  }
+
+  .project-btn i {
+    position: relative;
+    top: -1px; /* Micro-ajustement optique */
+    margin-right: 8px !important;
+    font-size: 1.1em !important;
+  }
+  .btn_git{
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+}

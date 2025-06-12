@@ -5,7 +5,7 @@
 
     <!--width=device-width : Cela indique que la largeur de la page doit correspondre à la largeur de l'écran du dispositif utilisé (par exemple, un téléphone ou une tablette).
     initial-scale=1.0 : Définit le niveau de zoom initial lorsque la page est chargée. Une valeur de 1.0 signifie qu'il n'y a pas de zoom par défaut (la page s'affiche à une échelle normale) -->
-    <meta name='viewport' content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Portfolio of Yacine Djadel, a Full Stack Developer with 3 years of experience in web and app development.">
     <title>Yacine DJADEL</title>
     <link rel="stylesheet" href ="styles.css">
@@ -18,7 +18,7 @@
 
   </head>
 
-  <body>
+  <body>2
     <div class="overlay"></div>
 
     <header>
@@ -84,10 +84,10 @@
             <p>I'm Full Stack Developer ecole multimedia de paris</p>
           </div>
           <span><i></i></span>
-        </div>-->
-      </div>
+        </div> -->
+    </div> 
 
-</section>
+</section> 
 
 
 
@@ -97,14 +97,14 @@
     <h3>Student at École Multimédia looking for an apprenticeship</h3>
     <p class="about_p">Learn, design, and innovate: three pillars that guide my journey. As a student at École Multimédia, I am looking for an apprenticeship to develop my skills and contribute to meaningful projects alongside inspiring professionals</p>
     <div class="about-btn">
-      <!-- On associe chaque bouton avec la section via l'attribut data-section -->
+
       <button class="active" data-section="main-skills" onclick="changeContent('main-skills')">Main Skills</button>
       <button data-section="education" onclick="changeContent('education')"> Experience</button>
       <button data-section="awards" onclick="changeContent('awards')">Education</button>
       
     </div>
     <div class="content-btn">
-      <!-- Main Skills content -->
+
       <div class="content main-skills ">
         <div class="text-box">
           <p>Front-end  </p>
@@ -129,7 +129,7 @@
 
       </div>
 
-      <!-- Awards content, hidden initially -->
+    
       <div class="content awards" style="display: none;">
         <div class="text-box">
           <p>Internship at Stoptca</p>
@@ -139,7 +139,7 @@
   
       </div>
 
-      <!-- Education content, hidden initially -->
+      
       <div class="content education" style="display: none;">
         <div class="text-box">
           <p>Bachelor 2 </p>
@@ -163,7 +163,7 @@
       <a href="#" target="_blank" class="btn d-CV">Download CV <i class="bx bx-download"></i></a>
     </div>
   </div>
-</section>
+</section> 
 
 <!------------------Section Competence----------->
 <section class="services" id="skill">
@@ -259,7 +259,9 @@ Il existe une base de musiciens dans l’application, et ils peuvent déjà éch
           <li><b>Data storage :</b> MySQL</li>
           <li><b>Tests :</b> PHPUnit for the backend and React Testing Library for the frontend.</li>
         </ul>
-        <a href="https://github.com/Zino-99/MusiChat" target="_blank"  class="btn project-btn"> <i class="fab fa-github" style="margin-right: 6px;"></i> Github</a>
+        <div class="btn_git">
+          <a href="https://github.com/Zino-99/MusiChat" target="_blank"  class="btn project-btn"> <i class="fab fa-github" style="margin-right: 6px;"></i> Github</a>
+      </div>
       </div>
     </div>
   </div>
