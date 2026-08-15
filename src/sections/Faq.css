@@ -1,0 +1,95 @@
+.faq {
+  background: var(--ink-2);
+  border-block: 1px solid var(--line);
+}
+
+.faq__list {
+  border-top: 1px solid var(--line);
+}
+
+.faq__item {
+  border-bottom: 1px solid var(--line);
+}
+
+.faq__q {
+  display: grid;
+  grid-template-columns: 3.5rem minmax(0, 1fr) 2rem;
+  align-items: center;
+  gap: clamp(1rem, 2vw, 2rem);
+  width: 100%;
+  padding-block: clamp(1.25rem, 2.4vw, 1.9rem);
+  text-align: left;
+}
+
+.faq__n {
+  color: var(--bone-28);
+  transition: color 0.4s var(--ease);
+}
+
+.faq__item.is-open .faq__n,
+.faq__q:hover .faq__n {
+  color: var(--signal);
+}
+
+.faq__qText {
+  font-size: clamp(1.05rem, 2vw, 1.5rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  transition: transform 0.5s var(--ease);
+}
+
+.faq__q:hover .faq__qText {
+  transform: translateX(6px);
+}
+
+.faq__sign {
+  position: relative;
+  width: 14px;
+  height: 14px;
+  justify-self: end;
+}
+
+.faq__sign i {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 14px;
+  height: 1px;
+  background: var(--bone);
+  transition: transform 0.45s var(--ease), background-color 0.4s var(--ease);
+}
+
+.faq__sign i:last-child {
+  transform: rotate(90deg);
+}
+
+.faq__item.is-open .faq__sign i {
+  background: var(--signal);
+}
+
+.faq__item.is-open .faq__sign i:last-child {
+  transform: rotate(0deg);
+}
+
+.faq__a {
+  overflow: hidden;
+}
+
+.faq__a p {
+  padding: 0 2rem 1.9rem calc(3.5rem + clamp(1rem, 2vw, 2rem));
+  max-width: 68ch;
+  font-size: 0.98rem;
+  line-height: 1.65;
+  color: var(--bone-70);
+  text-wrap: pretty;
+}
+
+@media (max-width: 720px) {
+  .faq__q {
+    grid-template-columns: 2.5rem minmax(0, 1fr) 1.5rem;
+  }
+  .faq__a p {
+    padding-left: calc(2.5rem + 1rem);
+    padding-right: 0;
+  }
+}

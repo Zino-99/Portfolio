@@ -1,0 +1,114 @@
+.cur {
+  position: fixed;
+  inset: 0;
+  z-index: 400;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s var(--ease);
+}
+
+.cur.is-on {
+  opacity: 1;
+}
+
+/* Le curseur système ne disparaît que là où le nôtre existe. */
+@media (hover: hover) and (pointer: fine) {
+  body {
+    cursor: none;
+  }
+  a,
+  button,
+  [data-cursor] {
+    cursor: none;
+  }
+}
+
+.cur__dot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--signal);
+  transition: opacity 0.3s var(--ease), width 0.3s var(--ease), height 0.3s var(--ease);
+}
+
+.cur__ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  backdrop-filter: invert(1) grayscale(1);
+  transition:
+    width 0.42s var(--ease),
+    height 0.42s var(--ease),
+    background-color 0.42s var(--ease),
+    border-color 0.42s var(--ease),
+    backdrop-filter 0.42s var(--ease);
+}
+
+.cur__ring.is-down {
+  transform-origin: center;
+  scale: 0.82;
+}
+
+.cur__label {
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink);
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity 0.3s var(--ease), transform 0.42s var(--ease);
+  white-space: nowrap;
+}
+
+/* ── États ─────────────────────────────────────────────────────────────── */
+
+.cur[data-mode='link'] .cur__ring {
+  width: 58px;
+  height: 58px;
+  border-color: transparent;
+  background: rgba(237, 234, 228, 0.14);
+  backdrop-filter: blur(2px);
+}
+
+.cur[data-mode='view'] .cur__ring,
+.cur[data-mode='action'] .cur__ring {
+  width: 92px;
+  height: 92px;
+  background: var(--signal);
+  border-color: var(--signal);
+  backdrop-filter: none;
+}
+
+.cur[data-mode='view'] .cur__label,
+.cur[data-mode='action'] .cur__label {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.cur[data-mode='view'] .cur__dot,
+.cur[data-mode='action'] .cur__dot {
+  opacity: 0;
+}
+
+.cur[data-mode='text'] .cur__ring {
+  width: 2px;
+  height: 34px;
+  border-radius: 1px;
+  background: var(--signal);
+  border-color: transparent;
+  backdrop-filter: none;
+}
+
+.cur[data-mode='text'] .cur__dot {
+  opacity: 0;
+}

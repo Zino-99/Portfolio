@@ -1,0 +1,96 @@
+.quotes {
+  background: var(--ink);
+}
+
+.quotes__stage {
+  position: relative;
+  min-height: clamp(15rem, 26vh, 20rem);
+  display: flex;
+  align-items: center;
+  padding-left: clamp(0rem, 6vw, 7rem);
+}
+
+.quotes__mark {
+  position: absolute;
+  left: 0;
+  top: -0.35em;
+  font-size: clamp(7rem, 18vw, 16rem);
+  line-height: 1;
+  color: var(--signal);
+  opacity: 0.16;
+  pointer-events: none;
+  user-select: none;
+}
+
+.quotes__body {
+  max-width: 30ch;
+}
+
+.quotes__text {
+  line-height: 1.22;
+  letter-spacing: -0.025em;
+  color: var(--bone);
+  text-wrap: pretty;
+}
+
+.quotes__by {
+  display: flex;
+  align-items: baseline;
+  gap: 0.9rem;
+  margin-top: 1.6rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--line);
+}
+
+.quotes__author {
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.quotes__company {
+  color: var(--signal);
+}
+
+.quotes__nav {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: clamp(2rem, 4vw, 3rem);
+}
+
+.quotes__dot {
+  position: relative;
+  width: 44px;
+  height: 2px;
+  background: var(--line-strong);
+  overflow: hidden;
+}
+
+.quotes__dotFill {
+  position: absolute;
+  inset: 0;
+  background: var(--signal);
+  transform-origin: left;
+  transform: scaleX(0);
+}
+
+.quotes__dot.is-on .quotes__dotFill {
+  animation-name: dot-fill;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes dot-fill {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .quotes__dot.is-on .quotes__dotFill {
+    animation: none;
+    transform: scaleX(1);
+  }
+}

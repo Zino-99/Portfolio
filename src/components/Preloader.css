@@ -1,0 +1,95 @@
+.pre {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  pointer-events: all;
+}
+
+.pre__curtain {
+  position: absolute;
+  inset: 0;
+  display: flex;
+}
+
+.pre__slat {
+  flex: 1;
+  background: var(--ink);
+  will-change: transform;
+}
+
+.pre__inner {
+  position: absolute;
+  inset: 0;
+  padding: var(--gutter);
+  display: grid;
+  align-content: center;
+  justify-items: start;
+  gap: 0.4rem;
+}
+
+.pre__word {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--bone-45);
+}
+
+.pre__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--signal);
+}
+
+.pre__name {
+  color: var(--bone);
+}
+
+.pre__meta {
+  margin-top: 0.2rem;
+}
+
+.pre__count {
+  position: absolute;
+  right: var(--gutter);
+  bottom: var(--gutter);
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  font-family: var(--mono);
+  color: var(--bone);
+  font-variant-numeric: tabular-nums;
+}
+
+.pre__num {
+  font-size: clamp(2.5rem, 8vw, 6rem);
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+}
+
+.pre__pct {
+  font-size: 0.8rem;
+  color: var(--signal);
+}
+
+.pre__bar {
+  position: absolute;
+  left: var(--gutter);
+  right: var(--gutter);
+  bottom: calc(var(--gutter) - 1px);
+  height: 1px;
+  background: var(--line);
+}
+
+.pre__bar span {
+  display: block;
+  height: 100%;
+  background: var(--signal);
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 0.15s linear;
+}

@@ -1,0 +1,165 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  will-change: transform;
+}
+
+/* Fondu vers l'encre en bas : la section suivante s'y raccorde sans couture. */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 30vh;
+  z-index: -1;
+  background: linear-gradient(to top, var(--ink), transparent);
+  pointer-events: none;
+}
+
+.hero__shell {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 3rem;
+  padding-block: clamp(6.5rem, 12vh, 9rem) clamp(3rem, 7vh, 5rem);
+  width: 100%;
+}
+
+.hero__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.hero__coord {
+  color: var(--bone-45);
+}
+
+.hero__title {
+  margin-block: auto;
+  padding-block: clamp(1rem, 4vh, 3rem);
+}
+
+.hero__title .mask-line {
+  padding-bottom: 0.02em;
+}
+
+/* Décalages d'attaque : le bloc respire au lieu de former un pavé aligné. */
+.hero__title .mask-line:nth-child(2) {
+  padding-left: clamp(1rem, 8vw, 9rem);
+}
+.hero__title .mask-line:nth-child(4) {
+  padding-left: clamp(0.5rem, 4vw, 4rem);
+}
+
+.hero__bottom {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: clamp(1.5rem, 4vw, 4rem);
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--line);
+}
+
+.hero__lede {
+  max-width: 46ch;
+}
+
+.hero__actions {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  flex-wrap: wrap;
+}
+
+.hero__mail {
+  font-size: 0.9rem;
+  color: var(--bone-70);
+}
+
+/* ── Indicateur de défilement ──────────────────────────────────────────── */
+
+.hero__scroll {
+  position: absolute;
+  left: 50%;
+  bottom: 1.4rem;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--bone-45);
+  transition: color 0.4s var(--ease);
+}
+
+.hero__scroll:hover {
+  color: var(--bone);
+}
+
+.hero__scrollLine {
+  position: relative;
+  width: 1px;
+  height: 42px;
+  background: var(--line-strong);
+  overflow: hidden;
+}
+
+.hero__scrollLine i {
+  position: absolute;
+  inset: 0;
+  background: var(--signal);
+  animation: scroll-run 2.1s var(--ease-in-out) infinite;
+}
+
+@keyframes scroll-run {
+  0% {
+    transform: translateY(-100%);
+  }
+  60%,
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+/* ── Rails verticaux ───────────────────────────────────────────────────── */
+
+.hero__edge {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--line);
+  z-index: -1;
+}
+
+.hero__edge--l {
+  left: calc(var(--gutter) - 1px);
+}
+.hero__edge--r {
+  right: calc(var(--gutter) - 1px);
+}
+
+@media (max-width: 860px) {
+  .hero__bottom {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+  .hero__scroll {
+    display: none;
+  }
+  .hero__edge {
+    display: none;
+  }
+}

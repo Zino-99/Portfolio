@@ -1,0 +1,130 @@
+.footer {
+  position: relative;
+  background: var(--ink-2);
+  border-top: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.footer__band {
+  padding-block: clamp(1rem, 2vw, 1.6rem);
+  border-bottom: 1px solid var(--line);
+  background: var(--signal);
+  color: var(--ink);
+}
+
+.footer__bandItem {
+  font-size: clamp(1.6rem, 4vw, 3rem);
+  line-height: 1;
+  padding-right: 1.5rem;
+  white-space: nowrap;
+}
+
+.footer__bandSep {
+  font-family: var(--serif);
+  font-size: clamp(1.6rem, 4vw, 3rem);
+  padding-right: 1.5rem;
+  opacity: 0.6;
+}
+
+.footer__inner {
+  padding-top: clamp(3rem, 7vw, 5rem);
+}
+
+.footer__cols {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(1.5rem, 4vw, 3rem);
+  padding-bottom: clamp(2rem, 5vw, 4rem);
+}
+
+.footer__col {
+  display: grid;
+  gap: 1rem;
+  align-content: start;
+}
+
+.footer__col ul {
+  display: grid;
+  gap: 0.55rem;
+  font-size: 0.92rem;
+  color: var(--bone-70);
+}
+
+.footer__time i {
+  font-style: normal;
+  color: var(--bone-28);
+  font-size: 0.8rem;
+}
+
+.footer__col--cta {
+  align-content: start;
+}
+
+.footer__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: clamp(1.8rem, 3.4vw, 2.8rem);
+  line-height: 1;
+  color: var(--bone);
+  transition: color 0.4s var(--ease);
+}
+
+.footer__cta svg {
+  width: 0.5em;
+  height: 0.5em;
+  transition: transform 0.5s var(--ease);
+}
+
+.footer__cta:hover {
+  color: var(--signal);
+}
+
+.footer__cta:hover svg {
+  transform: translate(4px, -4px);
+}
+
+/* ── Signature ─────────────────────────────────────────────────────────── */
+
+.footer__mark {
+  font-family: var(--serif);
+  font-size: clamp(5rem, 25vw, 24rem);
+  line-height: 0.78;
+  letter-spacing: -0.05em;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--line-strong);
+  text-align: center;
+  user-select: none;
+  margin-bottom: -0.12em;
+  transition: -webkit-text-stroke-color 0.6s var(--ease);
+}
+
+.footer:hover .footer__mark {
+  -webkit-text-stroke-color: rgba(255, 75, 31, 0.4);
+}
+
+/* ── Mentions ──────────────────────────────────────────────────────────── */
+
+.footer__legal {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 1.4rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.8rem;
+  color: var(--bone-45);
+}
+
+.footer__links {
+  display: flex;
+  gap: 1.4rem;
+}
+
+@media (max-width: 860px) {
+  .footer__cols {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2.5rem;
+  }
+}

@@ -1,0 +1,61 @@
+.manifesto {
+  background: var(--ink);
+}
+
+.manifesto__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.34fr) minmax(0, 1fr);
+  gap: clamp(2rem, 6vw, 6rem);
+  align-items: start;
+}
+
+.manifesto__side {
+  display: grid;
+  gap: 1.1rem;
+  position: sticky;
+  top: 8rem;
+}
+
+.manifesto__note {
+  font-size: 0.95rem;
+  color: var(--bone-70);
+  max-width: 32ch;
+  line-height: 1.6;
+}
+
+.manifesto__facts {
+  display: grid;
+  gap: 0.55rem;
+  margin-top: 0.75rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.9rem;
+  color: var(--bone-70);
+}
+
+.manifesto__facts li {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+.manifesto__facts .mono {
+  width: 5.5rem;
+  flex: none;
+}
+
+.manifesto__text {
+  color: var(--bone);
+  line-height: 1.18;
+  letter-spacing: -0.03em;
+  text-wrap: pretty;
+}
+
+@media (max-width: 900px) {
+  .manifesto__grid {
+    grid-template-columns: 1fr;
+  }
+  .manifesto__side {
+    position: static;
+  }
+}

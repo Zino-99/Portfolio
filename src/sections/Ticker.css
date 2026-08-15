@@ -1,0 +1,62 @@
+.ticker {
+  position: relative;
+  padding-block: clamp(1.2rem, 2.5vw, 2rem);
+  border-block: 1px solid var(--line);
+  background: var(--ink-2);
+  overflow: hidden;
+}
+
+/* Fondu sur les bords : le texte entre et sort au lieu d'être coupé net. */
+.ticker::before,
+.ticker::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: clamp(3rem, 12vw, 12rem);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.ticker::before {
+  left: 0;
+  background: linear-gradient(to right, var(--ink-2), transparent);
+}
+
+.ticker::after {
+  right: 0;
+  background: linear-gradient(to left, var(--ink-2), transparent);
+}
+
+.ticker__item {
+  display: inline-flex;
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  padding-right: clamp(1.5rem, 4vw, 3.5rem);
+  white-space: nowrap;
+}
+
+.ticker__item .display {
+  font-size: clamp(2rem, 5.5vw, 4.4rem);
+  line-height: 1;
+  color: var(--bone);
+}
+
+.ticker__item:nth-child(even) .display {
+  color: transparent;
+  -webkit-text-stroke: 1px var(--bone-28);
+}
+
+.ticker__star {
+  width: clamp(0.9rem, 1.6vw, 1.3rem);
+  height: auto;
+  color: var(--signal);
+  flex: none;
+  animation: star-spin 9s linear infinite;
+}
+
+@keyframes star-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

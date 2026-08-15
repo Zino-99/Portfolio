@@ -1,0 +1,1566 @@
+/* ============================================================
+   Sections
+   ============================================================ */
+
+/* ---------- Masques de texte ---------- */
+
+/* Les lettres découpées sont décoratives : la version lisible du texte vit
+   dans le .sr-only voisin. Les exclure de la sélection évite de copier le
+   même titre deux fois. */
+.word-mask,
+.char-mask,
+.ink-word {
+  user-select: none;
+}
+
+.word-mask,
+.char-mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+
+.word-mask {
+  padding-bottom: 0.08em;
+  /* l'espace inter-mots : un inline-block avale une espace en ::before */
+  margin-right: 0.24em;
+}
+
+.word-mask:last-child {
+  margin-right: 0;
+}
+
+.word-inner,
+.char-inner {
+  display: inline-block;
+  will-change: transform;
+}
+
+.chars {
+  display: inline-block;
+}
+
+.ink-word {
+  display: inline-block;
+  white-space: pre-wrap;
+}
+
+.ink-note {
+  display: inline-block;
+  transform: rotate(-3deg);
+}
+
+/* ============================================================
+   Préloader
+   ============================================================ */
+
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 9200;
+  background: var(--ink);
+  color: var(--paper);
+  display: grid;
+  align-items: end;
+}
+
+.preloader-inner {
+  position: relative;
+  width: 100%;
+  padding-bottom: clamp(2rem, 6vh, 4rem);
+  padding-top: 2rem;
+}
+
+.preloader-tag {
+  color: var(--rouge-inv);
+  display: block;
+  margin-bottom: auto;
+}
+
+.preloader-name {
+  font-size: clamp(1.9rem, 6.4vw, 5.5rem);
+  margin-top: clamp(1.5rem, 16vh, 9rem);
+  letter-spacing: -0.045em;
+}
+
+.preloader-last {
+  color: var(--rouge);
+}
+
+.preloader-bottom {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.preloader-count {
+  font-size: clamp(2rem, 7vw, 5rem);
+  color: var(--paper);
+  line-height: 0.8;
+  font-variant-numeric: tabular-nums;
+}
+
+.preloader-bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  background: var(--rouge);
+  transform-origin: left;
+}
+
+/* ============================================================
+   Navigation
+   ============================================================ */
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 8000;
+  transition: background 0.4s var(--ease-soft), border-color 0.4s var(--ease-soft);
+  border-bottom: 1px solid transparent;
+}
+
+.nav.is-tucked {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(14px) saturate(1.4);
+  border-bottom-color: var(--rule);
+}
+
+.nav-inner {
+  height: var(--nav-h);
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex: none;
+}
+
+.nav-mark-initials {
+  font-size: 1.15rem;
+  letter-spacing: -0.02em;
+}
+
+.nav-mark-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--rouge);
+  transition: transform 0.4s var(--ease-out);
+}
+
+.nav-mark:hover .nav-mark-dot {
+  transform: scale(1.9);
+}
+
+.nav-links {
+  display: flex;
+  gap: clamp(1rem, 2.2vw, 2rem);
+  margin-inline: auto;
+}
+
+.nav-link {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  /* Pas de hauteur fixe : la ligne doit contenir accents et jambages. */
+  line-height: 1.75;
+  color: var(--ink-2);
+}
+
+.nav-link-text {
+  display: block;
+  transition: transform 0.42s var(--ease-out);
+}
+
+/* La copie rouge attend une ligne plus bas, hors du cadre. */
+.nav-link-text--hover {
+  position: absolute;
+  inset: 0;
+  color: var(--rouge);
+  transform: translateY(100%);
+}
+
+.nav-link:hover .nav-link-text--base,
+.nav-link:focus-visible .nav-link-text--base {
+  transform: translateY(-100%);
+}
+
+.nav-link:hover .nav-link-text--hover,
+.nav-link:focus-visible .nav-link-text--hover {
+  transform: translateY(0);
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: none;
+}
+
+.nav-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--ink-2);
+}
+
+.nav-status-pulse {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--rouge);
+  box-shadow: 0 0 0 0 rgba(228, 0, 43, 0.55);
+  animation: pulse 2.4s var(--ease-soft) infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(228, 0, 43, 0.5); }
+  70% { box-shadow: 0 0 0 9px rgba(228, 0, 43, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(228, 0, 43, 0); }
+}
+
+.nav-cta {
+  padding: 0.7rem 1.15rem;
+}
+
+.nav-progress {
+  height: 2px;
+  background: var(--rouge);
+  transform-origin: left;
+  transform: scaleX(0);
+}
+
+.nav-burger {
+  display: none;
+  width: 34px;
+  height: 34px;
+  position: relative;
+}
+
+.nav-burger span {
+  position: absolute;
+  left: 6px;
+  right: 6px;
+  height: 1.5px;
+  background: var(--ink);
+  transition: transform 0.4s var(--ease-out), opacity 0.25s;
+}
+
+.nav-burger span:nth-child(1) { top: 13px; }
+.nav-burger span:nth-child(2) { top: 20px; }
+
+.nav-burger.is-open span:nth-child(1) { transform: translateY(3.5px) rotate(45deg); }
+.nav-burger.is-open span:nth-child(2) { transform: translateY(-3.5px) rotate(-45deg); }
+
+/* Menu plein écran */
+
+.menu {
+  position: fixed;
+  inset: 0;
+  z-index: 7900;
+  background: var(--rouge);
+  color: #fff;
+  display: grid;
+  align-items: center;
+}
+
+.menu-inner {
+  width: 100%;
+  padding-top: var(--nav-h);
+}
+
+.menu-list {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.menu-link {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  font-size: clamp(1.6rem, 6.2vw, 3.2rem);
+  line-height: 1.05;
+  transition: opacity 0.3s;
+}
+
+.menu-link:hover {
+  opacity: 0.62;
+}
+
+.menu-num {
+  font-size: 0.65rem;
+  opacity: 0.6;
+}
+
+.menu-foot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin-top: 3rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* ============================================================
+   Hero
+   ============================================================ */
+
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: calc(var(--nav-h) + 3vh);
+  padding-bottom: clamp(2rem, 5vh, 3.5rem);
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: 4.5rem minmax(0, 1fr);
+  gap: var(--gap);
+  align-items: start;
+  width: 100%;
+}
+
+.hero-body {
+  min-width: 0;
+}
+
+.hero-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: clamp(1.5rem, 3.4vw, 2.75rem);
+}
+
+.hero-bottom {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--gap);
+  flex-wrap: wrap;
+  margin-top: clamp(1.75rem, 4vw, 3rem);
+}
+
+.hero-rail {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  align-items: flex-start;
+  padding-top: 0.6rem;
+  color: var(--ink-3);
+}
+
+.hero-rail .mono {
+  writing-mode: vertical-rl;
+  letter-spacing: 0.22em;
+}
+
+.hero-rail-year {
+  color: var(--rouge);
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--ink-2);
+  padding-top: 0.4rem;
+}
+
+.hero-eyebrow-dot {
+  width: 22px;
+  height: 1px;
+  background: var(--rouge);
+}
+
+.hero-title {
+  /* Syne est large : « DJADEL » mesure 6,64 em. Ces valeurs sont le maximum
+     tenable — au-delà, le nom déborde de sa colonne sur certaines largeurs. */
+  font-size: clamp(3rem, 11.5vw, 11rem);
+}
+
+.hero-line {
+  display: block;
+  white-space: nowrap;
+}
+
+.hero-line--2 {
+  color: var(--rouge);
+  padding-left: 0.09em;
+}
+
+.hero-role {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.05rem, 2.1vw, 1.7rem);
+  letter-spacing: -0.015em;
+  margin-top: clamp(0.9rem, 2vw, 1.4rem);
+}
+
+.hero-lede {
+  max-width: 46ch;
+  font-size: clamp(1.05rem, 1.6vw, 1.35rem);
+  color: var(--ink-2);
+  line-height: 1.5;
+}
+
+.hero-lede .mark {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: clamp(1.25rem, 3vw, 2.5rem);
+  flex-wrap: wrap;
+  margin-top: clamp(2rem, 4vw, 3rem);
+}
+
+.hero-cta-magnet {
+  display: inline-block;
+  will-change: transform;
+}
+
+.hero-cv {
+  color: var(--ink-2);
+}
+
+/* Le tampon */
+.stamp {
+  flex: none;
+  --stamp: var(--rouge);
+  display: grid;
+  justify-items: center;
+  gap: 0.15rem;
+  padding: 0.9rem 1.4rem;
+  border: 2px solid var(--stamp);
+  outline: 1px solid var(--stamp);
+  outline-offset: 3px;
+  color: var(--stamp);
+  border-radius: 3px;
+  transform: rotate(-9deg);
+  opacity: 0.9;
+  text-align: center;
+}
+
+.stamp-main {
+  font-size: 1.1rem;
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+
+.stamp-top,
+.stamp-bottom {
+  font-size: 0.56rem;
+  letter-spacing: 0.2em;
+}
+
+/* Portrait détouré sur disque rouge (utilisé dans « À propos ») */
+.portrait {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+/* Le disque : la même encre que les annotations, en aplat. */
+.portrait-disc {
+  position: absolute;
+  left: 11%;
+  right: 11%;
+  bottom: 0;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  background: var(--rouge);
+  transition: transform 0.9s var(--ease-out);
+}
+
+.portrait-img {
+  position: relative;
+  width: 100%;
+  height: auto;
+  transform-origin: bottom center;
+  transition: transform 0.9s var(--ease-out);
+}
+
+.portrait:hover .portrait-img {
+  transform: scale(1.035);
+}
+
+.portrait:hover .portrait-disc {
+  transform: scale(1.04);
+}
+
+.portrait-fallback {
+  position: relative;
+  padding-bottom: 22%;
+  color: var(--paper);
+  font-size: clamp(3rem, 9vw, 5.5rem);
+}
+
+.portrait-tag {
+  position: absolute;
+  left: 0;
+  bottom: 0.6rem;
+  background: var(--paper);
+  color: var(--ink);
+  padding: 0.35rem 0.55rem;
+  font-size: 0.58rem;
+  z-index: 2;
+}
+
+.hero-foot {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  width: 100%;
+  margin-top: auto;
+  padding-top: clamp(1.5rem, 4vh, 2.75rem);
+  color: var(--ink-3);
+}
+
+.hero-scroll-line {
+  position: relative;
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+  overflow: hidden;
+}
+
+.hero-scroll-run {
+  position: absolute;
+  inset: 0;
+  background: var(--rouge);
+  transform-origin: left;
+  animation: runLine 2.6s var(--ease-soft) infinite;
+}
+
+@keyframes runLine {
+  0% { transform: scaleX(0); transform-origin: left; }
+  45% { transform: scaleX(1); transform-origin: left; }
+  55% { transform: scaleX(1); transform-origin: right; }
+  100% { transform: scaleX(0); transform-origin: right; }
+}
+
+.hero-foot-right {
+  flex: none;
+}
+
+/* ============================================================
+   Bandeau défilant
+   ============================================================ */
+
+.marquee {
+  overflow: hidden;
+  background: var(--rouge);
+  color: var(--paper);
+  padding-block: clamp(0.85rem, 1.8vw, 1.3rem);
+  white-space: nowrap;
+}
+
+.marquee-track {
+  display: flex;
+  white-space: nowrap;
+  will-change: transform;
+}
+
+.marquee-item {
+  display: inline-flex;
+  align-items: center;
+  font-size: clamp(1.6rem, 4.4vw, 3.4rem);
+  letter-spacing: -0.02em;
+  padding-right: 0.35em;
+}
+
+.marquee-sep {
+  display: inline-block;
+  margin-inline: 0.4em;
+  font-size: 0.4em;
+  transform: translateY(-0.35em);
+  opacity: 0.8;
+}
+
+/* ============================================================
+   À propos
+   ============================================================ */
+
+/* Une phrase d'accroche courte porte la section ; le détail passe en
+   taille de lecture. Un paragraphe de cinquante mots en Syne 3rem
+   faisait un mur. */
+.about-lead {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.4rem, 4.6vw, 4.2rem);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin-bottom: clamp(2.5rem, 5.5vw, 4.5rem);
+}
+
+.about-lead-line {
+  display: block;
+}
+
+.about-lead-key {
+  color: var(--rouge);
+}
+
+.about-body {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: start;
+}
+
+.about-portrait {
+  will-change: transform;
+}
+
+.about-detail {
+  display: grid;
+  gap: clamp(1.75rem, 3.5vw, 2.75rem);
+  align-content: start;
+}
+
+.about-text {
+  font-size: clamp(1.02rem, 1.5vw, 1.18rem);
+  line-height: 1.6;
+  color: var(--ink-2);
+  max-width: 52ch;
+}
+
+.about-note-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding-left: 0.5rem;
+}
+
+.about-arrow {
+  position: relative;
+  width: 46px;
+  height: 46px;
+  flex: none;
+  transform: rotate(-25deg);
+}
+
+.about-facts {
+  display: grid;
+  gap: 0;
+  border-top: 1px solid var(--rule);
+}
+
+.about-fact {
+  position: relative;
+  display: grid;
+  grid-template-columns: 8.5rem minmax(0, 1fr);
+  gap: 1rem;
+  padding-block: 1.05rem;
+  border-bottom: 1px solid var(--rule);
+  align-items: baseline;
+}
+
+/* Le filet rouge qui se trace sous chaque ligne, en cascade. */
+.about-fact-rule {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 1px;
+  background: var(--rouge);
+  transform-origin: left;
+}
+
+.about-fact dt {
+  color: var(--ink-3);
+}
+
+.about-fact dd {
+  color: var(--ink);
+  font-size: 0.98rem;
+}
+
+/* ============================================================
+   Compétences
+   ============================================================ */
+
+.skills-groups {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  gap: clamp(2rem, 3.5vw, 3.5rem);
+}
+
+.skill-group-head {
+  border-top: 2px solid var(--ink);
+  padding-top: 0.85rem;
+  margin-bottom: 1.25rem;
+}
+
+.skill-group-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.2rem;
+  letter-spacing: -0.01em;
+}
+
+.skill-group-note {
+  color: var(--ink-3);
+  font-size: 0.86rem;
+  margin-top: 0.3rem;
+}
+
+.skill-list {
+  display: grid;
+}
+
+.skill {
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  padding: 0.72rem 0.85rem;
+  border-bottom: 1px solid var(--rule);
+  isolation: isolate;
+  cursor: default;
+  transition: color 0.35s var(--ease-soft), padding-left 0.45s var(--ease-out);
+}
+
+.skill-fill {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--rouge);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s var(--ease-out);
+}
+
+.skill.is-hot {
+  color: var(--paper);
+  padding-left: 1.35rem;
+}
+
+.skill.is-hot .skill-fill {
+  transform: scaleX(1);
+}
+
+.skill.is-hot .skill-index {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.skill-index {
+  color: var(--ink-3);
+  flex: none;
+  transition: color 0.35s;
+}
+
+.skill-name {
+  font-size: 1.02rem;
+  font-weight: 500;
+}
+
+.skill-hint {
+  margin-left: auto;
+  padding-left: 0.75rem;
+  text-align: right;
+  color: var(--ink-3);
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  transition: color 0.35s;
+}
+
+.skill.is-hot .skill-hint {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* ============================================================
+   Parcours
+   ============================================================ */
+
+.parcours-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  gap: clamp(2.5rem, 5vw, 5rem);
+  align-items: start;
+}
+
+.parcours-col-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 2px solid var(--ink);
+  margin-bottom: 2rem;
+}
+
+.parcours-col-title {
+  font-size: 0.72rem;
+}
+
+.parcours-col-kicker {
+  color: var(--ink-3);
+}
+
+.timeline {
+  position: relative;
+  padding-left: clamp(1.75rem, 3vw, 2.75rem);
+}
+
+.timeline-rail,
+.timeline-run {
+  position: absolute;
+  left: 3px;
+  top: 0.4rem;
+  bottom: 0.4rem;
+  width: 1px;
+}
+
+.timeline-rail {
+  background: var(--rule);
+}
+
+.timeline-run {
+  background: var(--rouge);
+  transform-origin: top;
+  transform: scaleY(0);
+}
+
+.entries {
+  display: grid;
+  gap: clamp(2rem, 3.5vw, 3rem);
+}
+
+.entry {
+  position: relative;
+}
+
+.entry-node {
+  position: absolute;
+  left: calc(-1 * clamp(1.75rem, 3vw, 2.75rem) + 0.5px);
+  top: 0.55rem;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 1.5px solid var(--rouge);
+}
+
+.entry-year {
+  color: var(--rouge);
+  display: block;
+  margin-bottom: 0.45rem;
+}
+
+.entry-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.05rem, 1.8vw, 1.4rem);
+  letter-spacing: -0.015em;
+  line-height: 1.15;
+}
+
+.entry-org {
+  color: var(--ink);
+  font-weight: 500;
+  margin-top: 0.25rem;
+}
+
+.entry-place {
+  color: var(--ink-3);
+  font-weight: 400;
+}
+
+.entry-detail {
+  color: var(--ink-2);
+  font-size: 0.95rem;
+  margin-top: 0.5rem;
+  max-width: 46ch;
+}
+
+/* ============================================================
+   Projets
+   ============================================================ */
+
+.projects-note {
+  display: block;
+  margin-top: 0.5rem;
+}
+
+.proj-index {
+  border-top: 1px solid var(--rule);
+}
+
+.proj-row {
+  border-bottom: 1px solid var(--rule);
+}
+
+.proj-head {
+  position: relative;
+  display: grid;
+  grid-template-columns: 4.5rem minmax(0, 1fr) auto 2.5rem;
+  align-items: center;
+  gap: clamp(0.75rem, 2vw, 2rem);
+  width: 100%;
+  padding: clamp(1rem, 2.2vw, 1.55rem) 0;
+  text-align: left;
+  isolation: isolate;
+  transition: padding-inline 0.5s var(--ease-out);
+}
+
+/* Le balayage d'encre qui remplit la ligne au survol. */
+.proj-sweep {
+  position: absolute;
+  inset: 0 -1.25rem;
+  z-index: -1;
+  background: var(--rouge);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.55s var(--ease-out);
+}
+
+.proj-head:hover .proj-sweep,
+.proj-head:focus-visible .proj-sweep {
+  transform: scaleX(1);
+}
+
+.proj-head:hover,
+.proj-head:focus-visible {
+  padding-inline: 1.25rem;
+}
+
+.proj-num {
+  color: var(--rouge);
+  transition: color 0.35s var(--ease-soft);
+}
+
+.proj-title {
+  font-size: clamp(1.5rem, 3.6vw, 3.1rem);
+  line-height: 1;
+  transition: color 0.35s var(--ease-soft);
+}
+
+.proj-tag {
+  color: var(--ink-3);
+  text-align: right;
+  transition: color 0.35s var(--ease-soft);
+}
+
+.proj-head:hover .proj-num,
+.proj-head:hover .proj-title,
+.proj-head:hover .proj-tag,
+.proj-head:focus-visible .proj-num,
+.proj-head:focus-visible .proj-title,
+.proj-head:focus-visible .proj-tag {
+  color: var(--paper);
+}
+
+/* Le + qui bascule en × */
+.proj-toggle {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  justify-self: end;
+}
+
+.proj-toggle-bar {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1.5px;
+  background: var(--ink);
+  transition: transform 0.5s var(--ease-out), background 0.35s var(--ease-soft);
+}
+
+.proj-toggle-bar:last-child {
+  transform: rotate(90deg);
+}
+
+.proj-head:hover .proj-toggle-bar,
+.proj-head:focus-visible .proj-toggle-bar {
+  background: var(--paper);
+}
+
+.proj-row.is-open .proj-toggle-bar {
+  transform: rotate(45deg);
+}
+
+.proj-row.is-open .proj-toggle-bar:last-child {
+  transform: rotate(-45deg);
+}
+
+.proj-row.is-open .proj-num,
+.proj-row.is-open .proj-title {
+  color: var(--rouge);
+}
+
+.proj-panel {
+  overflow: hidden;
+}
+
+.proj-panel-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: clamp(1.5rem, 3.5vw, 3rem);
+  padding: 0.35rem 0 clamp(1.75rem, 3.5vw, 2.75rem);
+  align-items: start;
+}
+
+.proj-shot {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  aspect-ratio: 16 / 9;
+  background: var(--paper-2);
+}
+
+.proj-shot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 1s var(--ease-out);
+}
+
+.proj-shot:hover img {
+  transform: scale(1.03);
+}
+
+.proj-shot--empty {
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 0.6rem;
+  padding: 2rem;
+  background: var(--rouge-wash);
+  border-color: var(--rouge-wash);
+  color: var(--rouge);
+  text-align: center;
+}
+
+.proj-shot--empty .display {
+  font-size: clamp(1.4rem, 3vw, 2.2rem);
+}
+
+.proj-shot--empty .mono {
+  color: var(--rouge-deep);
+  opacity: 0.75;
+}
+
+.proj-detail {
+  display: grid;
+  gap: 1rem;
+  align-content: start;
+}
+
+.proj-summary {
+  font-size: clamp(1.02rem, 1.5vw, 1.2rem);
+  color: var(--ink);
+  max-width: 44ch;
+}
+
+.proj-role {
+  font-size: 0.94rem;
+  color: var(--ink-2);
+  max-width: 46ch;
+}
+
+.proj-role-label {
+  display: block;
+  color: var(--ink-3);
+  margin-bottom: 0.2rem;
+}
+
+.proj-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.proj-stack li {
+  border: 1px solid var(--rule);
+  border-radius: 100px;
+  padding: 0.35rem 0.7rem;
+  color: var(--ink-2);
+  font-size: 0.62rem;
+}
+
+.proj-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin-top: 0.35rem;
+}
+
+.proj-links--none {
+  color: var(--ink-3);
+}
+
+.proj-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--rouge);
+}
+
+.proj-cta-arrow {
+  transition: transform 0.4s var(--ease-out);
+}
+
+.proj-cta:hover .proj-cta-arrow,
+.proj-cta:focus-visible .proj-cta-arrow {
+  transform: translate(3px, -3px);
+}
+
+/* ============================================================
+   Alternance — la fiche de poste
+   ============================================================ */
+
+.alt {
+  position: relative;
+  background: var(--rouge);
+  color: #fff;
+  overflow: hidden;
+}
+
+/* Le mot qui traverse le fond au rythme du défilement. */
+.alt-ghost {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  white-space: nowrap;
+  font-size: clamp(7rem, 22vw, 19rem);
+  line-height: 0.8;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.17);
+  pointer-events: none;
+  user-select: none;
+}
+
+.alt-shell {
+  position: relative;
+  z-index: 1;
+}
+
+/* Sur le rouge, seul le blanc pur atteint le contraste AA (4,84:1). */
+.alt .sec-num {
+  color: #fff;
+}
+
+.alt-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  gap: clamp(2.5rem, 5vw, 5rem);
+  align-items: start;
+}
+
+.alt-sheet-shift {
+  will-change: transform;
+}
+
+/* La feuille posée de travers sur le rouge */
+.alt-sheet {
+  position: relative;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  background: var(--paper);
+  color: var(--ink);
+  border-radius: 3px;
+  box-shadow: 0 40px 80px -50px rgba(0, 0, 0, 0.65);
+}
+
+.alt-sheet-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 0.9rem;
+  border-bottom: 2px solid var(--ink);
+  color: var(--ink-3);
+}
+
+.alt-sheet-ref {
+  color: var(--rouge);
+}
+
+.alt-fields {
+  display: grid;
+}
+
+.alt-field {
+  position: relative;
+  display: grid;
+  grid-template-columns: 6.5rem minmax(0, 1fr);
+  gap: 1rem;
+  padding-block: 1rem;
+  border-bottom: 1px solid var(--rule);
+  align-items: baseline;
+}
+
+.alt-field-wipe {
+  position: absolute;
+  inset: 0.35rem -0.35rem;
+  background: var(--rouge);
+  transform-origin: right;
+  pointer-events: none;
+}
+
+.alt-field:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.alt-field dt {
+  color: var(--ink-3);
+}
+
+.alt-field dd {
+  font-size: 1.02rem;
+  font-weight: 500;
+}
+
+/* Le tampon, à cheval sur le bord de la feuille */
+.alt-stamp {
+  position: absolute;
+  right: clamp(1rem, 3vw, 2.5rem);
+  bottom: -1rem;
+  display: grid;
+  justify-items: center;
+  padding: 0.6rem 1.1rem;
+  background: var(--paper);
+  border: 2px solid var(--rouge);
+  outline: 1px solid var(--rouge);
+  outline-offset: 3px;
+  border-radius: 3px;
+  color: var(--rouge);
+}
+
+.alt-stamp .mono {
+  font-size: 0.5rem;
+}
+
+.alt-stamp strong {
+  font-size: 1.2rem;
+  line-height: 1;
+  letter-spacing: 0.01em;
+}
+
+/* Les trois arguments */
+.alt-strengths {
+  display: grid;
+}
+
+.alt-strength {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: clamp(1rem, 2vw, 1.75rem);
+  padding-bottom: clamp(1.5rem, 3vw, 2.25rem);
+  margin-bottom: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.alt-strength:last-child {
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.alt-strength-num {
+  font-size: clamp(1.75rem, 3.6vw, 3rem);
+  line-height: 0.9;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.85);
+}
+
+.alt-strength-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.1rem, 2.1vw, 1.55rem);
+  letter-spacing: -0.02em;
+  line-height: 1.12;
+}
+
+.alt-strength-body p {
+  margin-top: 0.5rem;
+  color: #fff;
+  max-width: 46ch;
+}
+
+.alt-strength-rule {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.35);
+  transform-origin: left;
+}
+
+.alt-strength:last-child .alt-strength-rule {
+  display: none;
+}
+
+/* ============================================================
+   Contact
+   ============================================================ */
+
+.contact {
+  background: var(--ink);
+  color: var(--paper);
+  padding-bottom: 0;
+}
+
+.contact-kicker {
+  color: var(--rouge-inv);
+  margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.contact-title {
+  /* « ALTERNANCE » rendu en Syne mesure 11,44 fois la taille de police.
+     C'est cette ligne qui plafonne le titre : au-delà, elle déborde. */
+  font-size: clamp(1.75rem, 7.5vw, 7rem);
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.contact-line--rouge {
+  color: var(--rouge);
+}
+
+.contact-line {
+  display: block;
+}
+
+.contact-mail-wrap {
+  display: grid;
+  gap: 1rem;
+  padding-bottom: clamp(3rem, 6vw, 5rem);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.contact-magnet {
+  display: inline-block;
+  justify-self: start;
+  will-change: transform;
+}
+
+.contact-mail {
+  position: relative;
+  display: inline-block;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.25rem, 4.4vw, 3.4rem);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  word-break: break-word;
+}
+
+.contact-mail-fill {
+  position: absolute;
+  inset: 0;
+  color: var(--rouge);
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 0.6s var(--ease-out);
+}
+
+.contact-mail:hover .contact-mail-fill,
+.contact-mail:focus-visible .contact-mail-fill {
+  clip-path: inset(0 0 0 0);
+}
+
+.contact-sub {
+  color: rgba(255, 255, 255, 0.6);
+  max-width: 42ch;
+}
+
+.contact-cols {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+  gap: 2rem;
+  padding-block: clamp(2.5rem, 5vw, 3.5rem);
+}
+
+.contact-col-label {
+  display: block;
+  color: var(--ink-3-inv);
+  margin-bottom: 0.75rem;
+}
+
+.contact-value {
+  font-size: 1.05rem;
+  color: var(--paper);
+}
+
+.contact-socials {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.contact-handle {
+  color: var(--ink-3-inv);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+}
+
+.footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding-block: 1.35rem;
+  color: var(--ink-3-inv);
+}
+
+/* ============================================================
+   Adaptations
+   ============================================================ */
+
+@media (max-width: 1080px) {
+  .nav-links {
+    display: none;
+  }
+
+  .nav-burger {
+    display: block;
+  }
+
+  .hero-inner {
+    grid-template-columns: 3.5rem minmax(0, 1fr);
+  }
+
+  .parcours-grid,
+  .alt-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .alt-sheet {
+    max-width: 34rem;
+  }
+
+  .proj-panel-inner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .proj-shot {
+    max-width: 34rem;
+  }
+}
+
+@media (max-width: 720px) {
+  .nav-status,
+  .nav-cta {
+    display: none;
+  }
+
+  .hero {
+    min-height: auto;
+    padding-bottom: 3.5rem;
+  }
+
+  .hero-inner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .hero-rail {
+    flex-direction: row;
+    gap: 1rem;
+    padding-top: 0;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-rail .mono {
+    writing-mode: horizontal-tb;
+  }
+
+  .hero-top {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+
+  .about-body {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .portrait {
+    max-width: 18rem;
+  }
+
+  .hero-foot-right {
+    display: none;
+  }
+
+  .about-fact,
+  .alt-field {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.2rem;
+  }
+
+  /* La feuille est inclinée : il lui faut de quoi tourner sans être rognée. */
+  .alt-sheet {
+    margin-inline: 0.6rem;
+  }
+
+  /* L'étiquette passe sous le titre : trois colonnes suffisent. */
+  .proj-head {
+    grid-template-columns: 2.5rem minmax(0, 1fr) 1.25rem;
+    row-gap: 0.3rem;
+  }
+
+  .proj-tag {
+    grid-column: 2;
+    text-align: left;
+  }
+
+  .proj-toggle {
+    grid-column: 3;
+    grid-row: 1;
+    width: 16px;
+    height: 16px;
+  }
+
+  .proj-head:hover,
+  .proj-head:focus-visible {
+    padding-inline: 0.75rem;
+  }
+
+  .sec-note {
+    margin-left: 0;
+  }
+
+  .footer-inner {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 420px) {
+  .stamp {
+    padding: 0.7rem 1rem;
+  }
+
+  .stamp-main {
+    font-size: 1.05rem;
+  }
+}

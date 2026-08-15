@@ -1,0 +1,53 @@
+# Configuration Apache pour un hébergement mutualisé classique.
+# Chaque bloc est protégé : si le module n'existe pas chez l'hébergeur,
+# la règle est ignorée au lieu de renvoyer une erreur 500.
+
+# --- Compression -------------------------------------------------------
+# Sans elle, le JavaScript part en 379 Ko au lieu de 120 Ko.
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css text/xml
+  AddOutputFilterByType DEFLATE application/javascript application/x-javascript
+  AddOutputFilterByType DEFLATE application/json application/xml
+  AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# Les .woff2 sont déjà compressés : les recompresser ne ferait que
+# consommer du CPU pour rien.
+
+# --- Types MIME --------------------------------------------------------
+<IfModule mod_mime.c>
+  AddType font/woff2 .woff2
+  AddType image/svg+xml .svg
+  AddType application/pdf .pdf
+</IfModule>
+
+# --- Cache -------------------------------------------------------------
+<IfModule mod_expires.c>
+  ExpiresActive On
+  # Le HTML ne doit jamais être mis en cache, sinon une mise à jour du site
+  # n'est pas vue par les visiteurs déjà venus.
+  ExpiresByType text/html "access plus 0 seconds"
+  # Images, polices, CV : renommables, donc cache modéré.
+  ExpiresDefault "access plus 1 month"
+</IfModule>
+
+<IfModule mod_headers.c>
+  # Les fichiers de assets/ portent une empreinte dans leur nom : un
+  # changement crée un nouveau nom, on peut donc les garder un an.
+  <FilesMatch "\.(js|css)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+</IfModule>
+
+# --- Sécurité ----------------------------------------------------------
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+<IfModule mod_autoindex.c>
+  Options -Indexes
+</IfModule>

@@ -1,0 +1,189 @@
+.contact {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--ink);
+}
+
+.contact__bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.6;
+  mask-image: linear-gradient(to bottom, transparent, #000 45%, #000);
+}
+
+.contact__shell {
+  position: relative;
+}
+
+.contact__big {
+  margin-bottom: clamp(2.5rem, 6vw, 5rem);
+}
+
+.contact__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr);
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: start;
+  padding-top: clamp(1.5rem, 3vw, 2.5rem);
+  border-top: 1px solid var(--line);
+}
+
+.contact__left {
+  display: grid;
+  gap: 2.25rem;
+}
+
+/* ── Email ────────────────────────────────────────────────────────────── */
+
+.contact__mail {
+  display: grid;
+  gap: 0.4rem;
+  text-align: left;
+  justify-items: start;
+}
+
+.contact__mailText {
+  font-family: var(--serif);
+  font-size: clamp(1.4rem, 3.4vw, 2.6rem);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  background-image: linear-gradient(var(--signal), var(--signal));
+  background-repeat: no-repeat;
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  transition: background-size 0.55s var(--ease), color 0.4s var(--ease);
+  padding-bottom: 4px;
+}
+
+.contact__mail:hover .contact__mailText {
+  background-size: 100% 1px;
+  color: var(--signal);
+}
+
+.contact__copied {
+  color: var(--bone-45);
+  transition: color 0.3s var(--ease);
+}
+
+.contact__copied.is-on {
+  color: var(--signal);
+}
+
+/* ── Méta ─────────────────────────────────────────────────────────────── */
+
+.contact__meta {
+  display: grid;
+  gap: 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.92rem;
+  color: var(--bone-70);
+}
+
+.contact__meta li {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.contact__meta .mono {
+  width: 5.5rem;
+  flex: none;
+}
+
+.contact__socials {
+  display: flex;
+  gap: 1.1rem;
+}
+
+/* ── Formulaire ───────────────────────────────────────────────────────── */
+
+.form {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.form__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.field {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.field input,
+.field textarea,
+.field select {
+  width: 100%;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--line-strong);
+  color: var(--bone);
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+  transition: border-color 0.4s var(--ease);
+  border-radius: 0;
+}
+
+.field select {
+  appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, var(--bone-45) 50%),
+    linear-gradient(135deg, var(--bone-45) 50%, transparent 50%);
+  background-position: calc(100% - 10px) 1.35rem, calc(100% - 5px) 1.35rem;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.field select option {
+  background: var(--ink-3);
+  color: var(--bone);
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 6rem;
+  font-family: inherit;
+  line-height: 1.55;
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: var(--bone-28);
+}
+
+.field input:focus,
+.field textarea:focus,
+.field select:focus {
+  outline: none;
+  border-bottom-color: var(--signal);
+}
+
+.form__foot {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+.form__note {
+  color: var(--bone-28);
+}
+
+@media (max-width: 900px) {
+  .contact__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 620px) {
+  .form__row {
+    grid-template-columns: 1fr;
+  }
+}

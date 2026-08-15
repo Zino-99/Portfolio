@@ -1,0 +1,251 @@
+.nav-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--signal);
+  transform-origin: left;
+  z-index: 210;
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 1.1rem var(--gutter);
+  transition: transform 0.6s var(--ease), background-color 0.5s var(--ease),
+    border-color 0.5s var(--ease), backdrop-filter 0.5s var(--ease);
+  border-bottom: 1px solid transparent;
+}
+
+.nav.is-solid {
+  background: rgba(8, 8, 10, 0.62);
+  backdrop-filter: blur(14px) saturate(140%);
+  border-bottom-color: var(--line);
+}
+
+.nav.is-hidden {
+  transform: translateY(-105%);
+}
+
+/* ── Marque ────────────────────────────────────────────────────────────── */
+
+.nav__mark {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex: none;
+}
+
+.nav__markGlyph {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--signal);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  line-height: 1;
+  padding-top: 2px;
+  transition: transform 0.5s var(--ease);
+}
+
+.nav__mark:hover .nav__markGlyph {
+  transform: rotate(120deg) scale(1.1);
+}
+
+.nav__markText {
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.nav__markText em {
+  font-style: normal;
+  font-size: 0.6rem;
+  vertical-align: super;
+  color: var(--bone-45);
+}
+
+/* ── Liens (roulement vertical) ────────────────────────────────────────── */
+
+.nav__links {
+  display: flex;
+  gap: clamp(1rem, 2.4vw, 2.4rem);
+  margin-inline: auto;
+}
+
+.nav__link {
+  overflow: hidden;
+  height: 1.35em;
+  display: block;
+  font-size: 0.9rem;
+  letter-spacing: -0.01em;
+}
+
+.nav__linkInner {
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.5s var(--ease);
+}
+
+.nav__linkInner span {
+  line-height: 1.35;
+}
+
+.nav__linkInner span:last-child {
+  color: var(--signal);
+}
+
+.nav__link:hover .nav__linkInner {
+  transform: translateY(-1.35em);
+}
+
+/* ── Droite ────────────────────────────────────────────────────────────── */
+
+.nav__right {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  flex: none;
+}
+
+.nav__clock {
+  font-variant-numeric: tabular-nums;
+  font-size: 0.62rem;
+  color: var(--bone-45);
+}
+
+.nav__clock i {
+  font-style: normal;
+  color: var(--signal);
+}
+
+.nav__cta {
+  padding: 0.72rem 1.2rem;
+  font-size: 0.82rem;
+}
+
+.nav__burger {
+  display: none;
+  width: 40px;
+  height: 40px;
+  position: relative;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+}
+
+.nav__burger span {
+  position: absolute;
+  left: 50%;
+  width: 15px;
+  height: 1px;
+  background: var(--bone);
+  transform: translateX(-50%);
+  transition: transform 0.4s var(--ease), opacity 0.3s var(--ease);
+}
+
+.nav__burger span:nth-child(1) {
+  top: 17px;
+}
+.nav__burger span:nth-child(2) {
+  top: 22px;
+}
+
+.nav__burger.is-open span:nth-child(1) {
+  transform: translateX(-50%) translateY(2.5px) rotate(45deg);
+}
+.nav__burger.is-open span:nth-child(2) {
+  transform: translateX(-50%) translateY(-2.5px) rotate(-45deg);
+}
+
+/* ── Menu plein écran ──────────────────────────────────────────────────── */
+
+.menu {
+  position: fixed;
+  inset: 0;
+  z-index: 190;
+  background: var(--ink-2);
+  display: flex;
+}
+
+.menu__inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 3rem;
+  width: 100%;
+  padding-block: 7rem 3rem;
+}
+
+.menu__list {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.menu__link {
+  display: flex;
+  align-items: baseline;
+  gap: 1.2rem;
+  color: var(--bone);
+  transition: color 0.4s var(--ease);
+}
+
+.menu__link:hover {
+  color: var(--signal);
+}
+
+.menu__n {
+  font-style: normal;
+  color: var(--signal);
+  font-size: 0.6rem;
+}
+
+.menu__foot {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--line);
+}
+
+.menu__mail {
+  font-size: clamp(1rem, 3vw, 1.6rem);
+  letter-spacing: -0.02em;
+}
+
+.menu__socials {
+  display: flex;
+  gap: 1.4rem;
+}
+
+/* ── Points de rupture ─────────────────────────────────────────────────── */
+
+@media (max-width: 1080px) {
+  .nav__links,
+  .nav__clock {
+    display: none;
+  }
+  .nav__burger {
+    display: block;
+  }
+  .nav__mark {
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 620px) {
+  .nav__cta {
+    display: none;
+  }
+}
